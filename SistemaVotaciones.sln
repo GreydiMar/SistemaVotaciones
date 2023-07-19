@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SistemaVotaciones", "SistemaVotaciones.vbproj", "{4DAB5546-96D3-496F-9813-30E2085F2F0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DAB5546-96D3-496F-9813-30E2085F2F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAB5546-96D3-496F-9813-30E2085F2F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAB5546-96D3-496F-9813-30E2085F2F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAB5546-96D3-496F-9813-30E2085F2F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AFDE70B-C588-4984-B661-0236A9481C4B}
+	EndGlobalSection
+EndGlobal

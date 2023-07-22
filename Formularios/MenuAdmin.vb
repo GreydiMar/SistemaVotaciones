@@ -315,28 +315,38 @@
     End Sub
 
     Private Sub BtnCargar_Click(sender As Object, e As EventArgs) Handles BtnCargar.Click
+        ' Declaración de variables
         Dim filename As String
         Dim openfiler As New OpenFileDialog
+
+        ' Configuración del cuadro de diálogo para abrir archivos de imagen
         With openfiler
             .InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyPictures
-            .Filter = "Archivos de imagen (.jpg;.png;.bmp;.gif)|.jpg;.png;.bmp;.gif|All Files (.)|."
+            .Filter = "Archivos de imagen|*.jpg;*.png;*.bmp;*.gif|Todos los archivos|*.*"
             .FilterIndex = 1
-            .RestoreDirectory = True
+            .RestoreDirectory = False
         End With
 
-
+        ' Mostrar el cuadro de diálogo para seleccionar un archivo
         If openfiler.ShowDialog = Windows.Forms.DialogResult.OK Then
+            ' Obtener la ruta del archivo seleccionado
             filename = openfiler.FileName
+
+            ' Verificar si el archivo existe
             If Not System.IO.File.Exists(filename) Then
+                ' Mostrar mensaje de error si el archivo no existe
                 MessageBox.Show("El archivo seleccionado no existe.")
             Else
                 Try
+                    ' Cargar la imagen en el PictureBox y ajustar su tamaño para que se ajuste al control
                     Me.ImgCandidatos.Image = Image.FromFile(filename)
                     Me.ImgCandidatos.SizeMode = PictureBoxSizeMode.StretchImage
                 Catch ex As Exception
+                    ' Mostrar mensaje de error si ocurre algún problema al cargar la imagen
                     MessageBox.Show("Ocurrió un error al cargar la imagen: " & ex.Message)
                 End Try
             End If
         End If
     End Sub
+
 End Class

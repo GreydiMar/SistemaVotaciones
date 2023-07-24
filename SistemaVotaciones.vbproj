@@ -73,7 +73,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Usuario.vb" />
+    <Compile Include="Clases\Candidato.vb" />
+    <Compile Include="Clases\Cargo.vb" />
+    <Compile Include="Clases\Voto.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

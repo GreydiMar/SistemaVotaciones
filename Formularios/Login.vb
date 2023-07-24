@@ -21,8 +21,14 @@
 
         reader = cmd.ExecuteReader
         If reader.Read Then
-            Elecciones.Show()
+
+            Dim Id As String
+            Id = reader("Id").ToString()
+            Dim Eleciones As New Elecciones(Id)
+            Eleciones.Show()
             Me.Dispose()
+
+
         Else
             MessageBox.Show("Numero de DNI incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If

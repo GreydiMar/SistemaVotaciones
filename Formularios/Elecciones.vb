@@ -114,6 +114,7 @@ Public Class Elecciones
         Me.BtnAtras.Visible = indice > 0
         Me.BtnSiguiente.Visible = listaCargos.Count > (indice + 1)
         Me.BtnTerminar.Visible = listaCargos.Count = (indice + 1)
+        Me.imgAtras.Visible = Me.BtnAtras.Visible
     End Sub
 
     Sub CrearPapeleta(lista As List(Of Candidato), titulo As String) '
@@ -130,7 +131,8 @@ Public Class Elecciones
         Dim margin As Integer = 50
 
         Dim lblTitulo As New Label()
-        lblTitulo.Text = titulo
+        lblTitulo.Text = "Candidatos para: " & titulo
+        lblTitulo.AutoSize = True
         lblTitulo.Location = New Point(x, y)
         Me.PnlPapeleta.Controls.Add(lblTitulo)
 
@@ -171,7 +173,7 @@ Public Class Elecciones
 
                 BtnVotar.Location = New Point(x, LblPartido.Bottom + 1)
                 BtnVotar.AutoSize = False
-                BtnVotar.Size = New Size(ImgCandidato.Width, LblNombre.Height)
+                BtnVotar.Size = New Size(ImgCandidato.Width, 45)
                 BtnVotar.TextAlign = ContentAlignment.MiddleCenter
                 AddHandler BtnVotar.Click, Sub() Votar(candidato)
                 Me.PnlPapeleta.Controls.Add(BtnVotar)
@@ -221,11 +223,16 @@ Public Class Elecciones
         _index = _index + 1
         Call ObtenerCandidatos(_index)
         Me.BtnAtras.Enabled = _index > 0
+
     End Sub
 
     Private Sub BtnTerminar_Click(sender As Object, e As EventArgs) Handles BtnTerminar.Click
         Dim Resumen As New ResumenVotacion(listaCandSeleccionados, _idUsuario, listaCargos)
         Resumen.Show()
         Me.Dispose()
+    End Sub
+
+    Private Sub imgAtras_Click(sender As Object, e As EventArgs) Handles imgAtras.Click
+        Me.BtnAtras.PerformClick
     End Sub
 End Class

@@ -45,7 +45,7 @@ Partial Class Login
         Me.TxtDni.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtDni.Location = New System.Drawing.Point(177, 247)
         Me.TxtDni.Name = "TxtDni"
-        Me.TxtDni.Size = New System.Drawing.Size(163, 13)
+        Me.TxtDni.Size = New System.Drawing.Size(136, 13)
         Me.TxtDni.TabIndex = 1
         '
         'btnSalir

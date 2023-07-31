@@ -64,7 +64,7 @@ Partial Class LoginAdmin
         Me.TxtDni.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtDni.Location = New System.Drawing.Point(169, 249)
         Me.TxtDni.Name = "TxtDni"
-        Me.TxtDni.Size = New System.Drawing.Size(155, 13)
+        Me.TxtDni.Size = New System.Drawing.Size(132, 13)
         Me.TxtDni.TabIndex = 0
         '
         'TxtContrasena
@@ -75,6 +75,7 @@ Partial Class LoginAdmin
         Me.TxtContrasena.Name = "TxtContrasena"
         Me.TxtContrasena.Size = New System.Drawing.Size(129, 13)
         Me.TxtContrasena.TabIndex = 1
+        Me.TxtContrasena.UseSystemPasswordChar = True
         '
         'BtnMostrar
         '

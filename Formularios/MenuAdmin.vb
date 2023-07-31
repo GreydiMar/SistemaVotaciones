@@ -6,7 +6,7 @@ Public Class MenuAdmin
 
     Private _NombreUsuario As String
 
-    Public Sub New(ByVal NombreUsuario As String)  'Constructor de la clase MenuAdmin
+    Public Sub New(ByVal NombreUsuario As String)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
@@ -15,9 +15,9 @@ Public Class MenuAdmin
         _NombreUsuario = NombreUsuario
     End Sub
 
-    Private Sub MenuAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'Se ejecuta la cargar el formulario
+    Private Sub MenuAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = _NombreUsuario
-        'Se llaman todos los metodos que uno quiere ejecutar al iniciar el formulario
+
         Call InicioCargos()
         Call ObtenerCargos()
         Call ObtenerPartidos()
@@ -28,7 +28,7 @@ Public Class MenuAdmin
     End Sub
 
     Sub InicioCargos()
-        'Inicializar controles de la pestaña cargos
+        'Inicializar controles cargos
         Me.BtnNuevoCargo.Enabled = True
         Me.BtnEditarCargo.Enabled = False
         Me.BtnGuardarCargo.Enabled = False
@@ -95,25 +95,25 @@ Public Class MenuAdmin
         Me.TxtNombreCargo.Focus()
     End Sub
 
-    Sub ObtenerCargos() 'Obtiene los cargos de la base de datos,llena el data gridView y el combobox de la pestaña candidatos
+    Sub ObtenerCargos()
 
-        Dim con As New SqlClient.SqlConnection(My.Settings.Votaciones) 'almacena la cadena de conexion
-        con.Open()                              'Abre la conexion
-        Dim reader As SqlClient.SqlDataReader         'Se declara la variable para obtener la info alamcenada en la BD
+        Dim con As New SqlClient.SqlConnection(My.Settings.Votaciones)
+        con.Open()
+        Dim reader As SqlClient.SqlDataReader
 
-        Dim cmd As New SqlClient.SqlCommand("SELECT * FROM Cargos", con)   'Almacena la query a ejecutar
-        reader = cmd.ExecuteReader         'Ejecuta la query, y el resultado se guarda en la variable reader
-        DgvCargos.Rows.Clear()          'Limpia los elementos
+        Dim cmd As New SqlClient.SqlCommand("SELECT * FROM Cargos", con)
+        reader = cmd.ExecuteReader
+        DgvCargos.Rows.Clear()
         CmbCargos.Items.Clear()
-        While reader.Read()   'Ciclo while que recorre los elementos obtenidos de la consulta 
+        While reader.Read()
 
-            Dim id As Integer = reader.GetInt32(reader.GetOrdinal("Id"))    'Variables
+            Dim id As Integer = reader.GetInt32(reader.GetOrdinal("Id"))
             Dim nombre As String = reader.GetString(reader.GetOrdinal("Nombre"))
-            DgvCargos.Rows.Add(id, nombre)        'Agrega una fila al datagridview
-            CmbCargos.Items.Add(New With {Key .Value = id, Key .Text = nombre}) 'Agrega datos al combobox
+            DgvCargos.Rows.Add(id, nombre)
+            CmbCargos.Items.Add(New With {Key .Value = id, Key .Text = nombre})
         End While
-        CmbCargos.ValueMember = "Value"      'el que se almacena
-        CmbCargos.DisplayMember = "Text"     'el que se va a mostrar
+        CmbCargos.ValueMember = "Value"
+        CmbCargos.DisplayMember = "Text"
         con.Close()
     End Sub
 
@@ -295,12 +295,8 @@ Public Class MenuAdmin
 
         Dim con As New SqlClient.SqlConnection(My.Settings.Votaciones)
         con.Open()
-
         Dim cmd As New SqlClient.SqlCommand(query, con)
-
         Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-
-
         con.Close()
         DB = rowsAffected
     End Function
@@ -407,11 +403,11 @@ Public Class MenuAdmin
         End If
     End Sub
 
-    Private Sub CmbDpt_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbDpt.SelectedIndexChanged  'CUando cambia la seleccion el combobox del departamento
-        If CmbDpt.SelectedIndex >= 0 Then   'Valida si hay un elemento seleccionado
+    Private Sub CmbDpt_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbDpt.SelectedIndexChanged
+        If CmbDpt.SelectedIndex >= 0 Then
             Dim selectedItem As Object = CmbDpt.SelectedItem
             Dim selectedValue As Integer = selectedItem.Value
-            CmbMuni.SelectedIndex = -1   'Se resetean los datos
+            CmbMuni.SelectedIndex = -1
             Call ObtenerMunicipios(selectedValue, Me.CmbMuni)
         End If
     End Sub
@@ -485,14 +481,14 @@ Public Class MenuAdmin
     End Sub
 
     Private Sub BtnGuardarCandidato_Click(sender As Object, e As EventArgs) Handles BtnGuardarCandidato.Click
-        If validarCandidato() > 0 Then  'LLama el metodo que valida si hay campos vacios
+        If validarCandidato() > 0 Then
             Return
         End If
 
-        Dim dpt, muni, cargoId, partidoId As Integer  'Declara las variables 
+        Dim dpt, muni, cargoId, partidoId As Integer
         Dim nombre As String = Me.TxtNombreCandidato.Text
 
-        If CmbDpt.Visible Then    'Valida si el combobox de departamento es visible, si es visible es que hay campos en el
+        If CmbDpt.Visible Then
             Dim selectedItem As Object = CmbDpt.SelectedItem
             dpt = selectedItem.Value
         Else
@@ -511,7 +507,7 @@ Public Class MenuAdmin
         Dim selectedItemPartido As Object = CmbPartidos.SelectedItem
         partidoId = selectedItemPartido.Value
 
-        If GuardarOActualizarCandidatos(nombre, cargoId, partidoId, dpt, muni, Me.ImgCandidatos) Then 'Llama al metodo y valida, y le pasa todo los valores que va a almacenar
+        If InsertOrUpdateCandidato(nombre, cargoId, partidoId, dpt, muni, Me.ImgCandidatos) Then
             MessageBox.Show("Candidato insertado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Call InicioCargos()
             Call ObtenerCandidatos()
@@ -522,9 +518,9 @@ Public Class MenuAdmin
 
     End Sub
 
-    Private Function GuardarOActualizarCandidatos(nombre As String, cargoId As Integer, partidoId As Integer, dpt As Integer, muni As Integer, pictureBox As PictureBox, Optional isUpdating As Boolean = False, Optional id As Integer = 0) As Boolean
+    Private Function InsertOrUpdateCandidato(nombre As String, cargoId As Integer, partidoId As Integer, dpt As Integer, muni As Integer, pictureBox As PictureBox, Optional isUpdating As Boolean = False, Optional id As Integer = 0) As Boolean
         ' Obtener el arreglo de bytes de la imagen
-        Dim imageData As Byte() = ArregloImagen(pictureBox)
+        Dim imageData As Byte() = ImageToByteArray(pictureBox)
 
         ' Crear una conexión a la base de datos SQL Server
         Using connection As New SqlClient.SqlConnection(My.Settings.Votaciones)
@@ -580,7 +576,7 @@ Public Class MenuAdmin
     End Function
 
 
-    Private Function ArregloImagen(pictureBox As PictureBox) As Byte() 'Este metodo recibe el control donde se encuentra una imagen y la convierte a un arreglo byte
+    Private Function ImageToByteArray(pictureBox As PictureBox) As Byte()
         ' Obtener la imagen del PictureBox
         Dim image As Image = pictureBox.Image
 
@@ -597,18 +593,18 @@ Public Class MenuAdmin
     Private Sub DGVCandidatos_DoubleClick(sender As Object, e As EventArgs) Handles DGVCandidatos.DoubleClick
 
         ' Obtener la fila seleccionada en el DataGridView
-        Dim filaSeleccionada As DataGridViewRow = DGVCandidatos.CurrentRow
+        Dim selectedRow As DataGridViewRow = DGVCandidatos.CurrentRow
 
         ' Verificar si hay una fila seleccionada
-        If filaSeleccionada IsNot Nothing Then
+        If selectedRow IsNot Nothing Then
             ' Obtener el valor de la primera columna de la fila seleccionada
-            Dim id As Object = filaSeleccionada.Cells(0).Value
-            Dim nombre As Object = filaSeleccionada.Cells(1).Value
-            Dim cargo As Object = filaSeleccionada.Cells(2).Value
-            Dim partido As Object = filaSeleccionada.Cells(3).Value
-            Dim dpt As Object = filaSeleccionada.Cells(4).Value
-            Dim muni As Object = filaSeleccionada.Cells(5).Value
-            Dim img As Object = filaSeleccionada.Cells(6).Value
+            Dim id As Object = selectedRow.Cells(0).Value
+            Dim nombre As Object = selectedRow.Cells(1).Value
+            Dim cargo As Object = selectedRow.Cells(2).Value
+            Dim partido As Object = selectedRow.Cells(3).Value
+            Dim dpt As Object = selectedRow.Cells(4).Value
+            Dim muni As Object = selectedRow.Cells(5).Value
+            Dim img As Object = selectedRow.Cells(6).Value
 
             Me.TxtIdCandidato.Text = id
             Me.TxtNombreCandidato.Text = nombre
@@ -617,7 +613,7 @@ Public Class MenuAdmin
             Me.CmbDpt.Text = dpt
             Me.CmbMuni.Text = muni
 
-            If TypeOf img Is Byte() Then   'Toma el array de byte, y lo convierte en imagen y lo agrega al picturebox
+            If TypeOf img Is Byte() Then
                 Dim imageData As Byte() = DirectCast(img, Byte())
                 Dim ms As New MemoryStream(imageData)
                 ImgCandidatos.Image = Image.FromStream(ms)
@@ -670,19 +666,21 @@ Public Class MenuAdmin
         partidoId = selectedItemPartido.Value
         id = Me.TxtIdCandidato.Text
 
-        If GuardarOActualizarCandidatos(nombre, cargoId, partidoId, dpt, muni, Me.ImgCandidatos, True, id) Then
+        If InsertOrUpdateCandidato(nombre, cargoId, partidoId, dpt, muni, Me.ImgCandidatos, True, id) Then
             MessageBox.Show("Candidato editado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Call InicioCargos()
             Call ObtenerCandidatos()
         Else
             MessageBox.Show("No se pudo editar el candidato.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+
+
     End Sub
 
-    Function validarCandidato() As Integer  'Valida que no hayan campos vacios en la pestaña de guaradar o actualizar
-        Dim e As Integer = 0   'Declara una varaible en 0 y se encuentra uno vacio suma la variable
+    Function validarCandidato() As Integer
+        Dim e As Integer = 0
 
-        If Trim(Me.TxtNombreCandidato.Text).Length = 0 Then  'Hace las validaciones por cada campo 
+        If Trim(Me.TxtNombreCandidato.Text).Length = 0 Then
             MessageBox.Show("Ingrese el nombre del candidato.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Me.TxtNombreCandidato.Focus()
             e += 1
@@ -712,7 +710,7 @@ Public Class MenuAdmin
             e += 1
 
         End If
-        validarCandidato = e  'Retorna la variable e
+        validarCandidato = e
     End Function
 
     Private Sub BtnEliminarCandidato_Click(sender As Object, e As EventArgs) Handles BtnEliminarCandidato.Click
@@ -942,7 +940,31 @@ Public Class MenuAdmin
         Me.Dispose()
     End Sub
 
-    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+    Private Sub BtnReporteC_Click(sender As Object, e As EventArgs) Handles BtnReporteC.Click
+        Dim frmReporte As New Reporte(_NombreUsuario)
 
+        frmReporte.Show()
+        Me.Dispose()
+    End Sub
+
+    Private Sub BtnReporteR_Click(sender As Object, e As EventArgs) Handles BtnReporteR.Click
+        Dim frmReporte As New Reporte(_NombreUsuario)
+
+        frmReporte.Show()
+        Me.Dispose()
+    End Sub
+
+    Private Sub BtnReporteP_Click(sender As Object, e As EventArgs) Handles BtnReporteP.Click
+        Dim frmReporte As New Reporte(_NombreUsuario)
+
+        frmReporte.Show()
+        Me.Dispose()
+    End Sub
+
+    Private Sub BtnReporteCa_Click(sender As Object, e As EventArgs) Handles BtnReporteCa.Click
+        Dim frmReporte As New Reporte(_NombreUsuario)
+
+        frmReporte.Show()
+        Me.Dispose()
     End Sub
 End Class

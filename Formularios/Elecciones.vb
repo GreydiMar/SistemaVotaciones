@@ -1,32 +1,35 @@
 ﻿Imports System.IO
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 
 Public Class Elecciones
 
     Private _idUsuario As String
+    Private _lstCand As List(Of Candidato)
     Private _nombre As String
     Private _Ald As Integer
     Private _Muni As Integer
     Private _Dpt As Integer
-
+    Private _index As Integer = 0
     Dim listaCargos As New List(Of Cargo)
-    Dim votos As New List(Of Voto)
+    Dim listaCandSeleccionados As New List(Of Candidato)
 
-    Public Sub New(ByVal id As String)
+    Public Sub New(ByVal id As String, listaCand As List(Of Candidato))
 
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
         _idUsuario = id
-
+        _lstCand = listaCand
     End Sub
 
     Private Sub Elecciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        listaCandSeleccionados = _lstCand
         Call ObtenerUsuario()
-
-        Me.LblVotante.Text = "INICIO SESION COMO " + _nombre
         Call ObtenerCargos()
-        Call CrearPapeletas(listaCargos)
+        Call ObtenerCandidatos(_index)
+        Me.LblVotante.Text = "INICIO SESION COMO " + _nombre
+        Me.BtnAtras.Enabled = False
     End Sub
 
     Sub ObtenerUsuario()
@@ -45,163 +48,184 @@ Public Class Elecciones
             _Muni = reader.GetInt32(reader.GetOrdinal("Muni"))
             _Dpt = reader.GetInt32(reader.GetOrdinal("Dpt"))
         End While
-
         con.Close()
-
     End Sub
-
 
     Sub ObtenerCargos()
         Dim con As New SqlClient.SqlConnection(My.Settings.Votaciones)
         con.Open()
         Dim reader As SqlClient.SqlDataReader
-
-        Dim cmd As New SqlClient.SqlCommand("SELECT car.Id AS CargoId, car.Nombre AS Cargo, can.Id, can.Nombre AS CandidatoNombre, can.MunicipioId, can.DepartamentoId, can.Imagen FROM Cargos AS car INNER JOIN Candidatos AS can ON car.Id = can.CargoId WHERE (can.MunicipioId = ' " & _Muni & "'  OR can.MunicipioId IS NULL) AND (can.DepartamentoId = '" & _Dpt & "' OR (can.DepartamentoId IS NULL AND can.MunicipioId IS NULL))", con)
-
+        Dim cmd As New SqlClient.SqlCommand("SELECT * FROM Cargos", con)
         reader = cmd.ExecuteReader
-
-        ' Crear un diccionario para almacenar los objetos Cargo
-        Dim cargos As New Dictionary(Of Integer, Cargo)
-
         While reader.Read()
-            ' Obtener el Id y el nombre del cargo
-            Dim cargoId As Integer = reader.GetInt32(reader.GetOrdinal("CargoId"))
-            Dim cargoNombre As String = reader.GetString(reader.GetOrdinal("Cargo"))
-
-            ' Verificar si ya existe un objeto Cargo con el mismo Id en el diccionario
-            If Not cargos.ContainsKey(cargoId) Then
-                ' Si no existe, crear un nuevo objeto Cargo y agregarlo al diccionario
-                Dim cargo As New Cargo()
-                cargo.Id = cargoId
-                cargo.Nombre = cargoNombre
-                cargo.Candidatos = New List(Of Candidato)
-                cargos.Add(cargoId, cargo)
-            End If
-
-            ' Obtener el objeto Cargo del diccionario
-            Dim cargoActual As Cargo = cargos(cargoId)
-
-            ' Crear un nuevo objeto Candidato y asignarle los valores del registro actual
-            Dim candidato As New Candidato()
-            candidato.Id = reader.GetInt32(reader.GetOrdinal("Id"))
-            candidato.Nombre = reader.GetString(reader.GetOrdinal("CandidatoNombre"))
-
-            ' Verificar si el campo MunicipioId es NULL
-            If reader.IsDBNull(reader.GetOrdinal("MunicipioId")) Then
-                candidato.MunicipioId = Nothing
-            Else
-                candidato.MunicipioId = reader.GetInt32(reader.GetOrdinal("MunicipioId"))
-            End If
-
-            ' Verificar si el campo DepartamentoId es NULL
-            If reader.IsDBNull(reader.GetOrdinal("DepartamentoId")) Then
-                candidato.DepartamentoId = Nothing
-            Else
-                candidato.DepartamentoId = reader.GetInt32(reader.GetOrdinal("DepartamentoId"))
-            End If
-
-            ' Verificar si el campo Imagen es NULL
-            If reader.IsDBNull(reader.GetOrdinal("Imagen")) Then
-                candidato.Imagen = Nothing
-            Else
-                candidato.Imagen = DirectCast(reader.GetValue(reader.GetOrdinal("Imagen")), Byte())
-            End If
-
-            ' Agregar el objeto Candidato a la lista de candidatos del objeto Cargo
-            cargoActual.Candidatos.Add(candidato)
+            Dim id As Integer = reader.GetInt32(reader.GetOrdinal("Id"))
+            Dim nombre As String = reader.GetString(reader.GetOrdinal("Nombre"))
+            Dim cargo As New Cargo
+            cargo.Id = id
+            cargo.Nombre = nombre
+            listaCargos.Add(cargo)
         End While
-        listaCargos = cargos.Values.ToList()
         con.Close()
-
-        ' La lista cargos.Values ahora contiene los objetos Cargo con sus respectivos objetos Candidato e Imagenes.
+        listaCargos.Sort(Function(x, y) x.Nombre.CompareTo(y.Nombre))
     End Sub
 
-    Sub CrearPapeletas(cargos As List(Of Cargo))
-        Dim papeletaPanel As New FlowLayoutPanel()
-        papeletaPanel.FlowDirection = FlowDirection.TopDown
-        papeletaPanel.WrapContents = False
-        papeletaPanel.AutoScroll = True
-        papeletaPanel.Dock = DockStyle.Fill
+    Sub ObtenerCandidatos(indice As Integer)
+        Dim contar As Integer = 1
+        Dim cargo As Cargo
+        cargo = listaCargos(indice)
+        '  For Each cargo As Cargo In listaCargos
+        Dim query As String = "SELECT c.Id, c.Nombre, p.Nombre AS Partido, c.Imagen, c.DepartamentoId as Dpt, c.MunicipioId as Muni FROM Candidatos AS c INNER JOIN Partidos AS p ON p.Id = c.PartidoId WHERE CargoId = " & cargo.Id.ToString()
+        Dim con As New SqlClient.SqlConnection(My.Settings.Votaciones)
+        con.Open()
+        Dim reader As SqlClient.SqlDataReader
+        Dim cmd As New SqlClient.SqlCommand(query, con)
+        reader = cmd.ExecuteReader
+        Dim listaCandidatos As New List(Of Candidato)
+        While reader.Read()
+            Dim id As Integer = reader.GetInt32(reader.GetOrdinal("Id"))
+            Dim nombre As String = reader.GetString(reader.GetOrdinal("Nombre"))
+            Dim partido As String = reader.GetString(reader.GetOrdinal("Partido"))
+            Dim imagen As Byte() = CType(reader.GetValue(reader.GetOrdinal("Imagen")), Byte())
+            Dim dpt As Integer = If(reader.IsDBNull(reader.GetOrdinal("Dpt")), 0, reader.GetInt32(reader.GetOrdinal("Dpt")))
+            Dim muni As Integer = If(reader.IsDBNull(reader.GetOrdinal("Muni")), 0, reader.GetInt32(reader.GetOrdinal("Muni")))
+            Dim candidato As New Candidato
+            candidato.Id = id
+            candidato.Nombre = nombre
+            candidato.Partido = partido
+            candidato.Imagen = imagen
+            candidato.Dpt = dpt
+            candidato.Muni = muni
+            candidato.CargoId = cargo.Id
+            candidato.CargoNombre = cargo.Nombre
+            listaCandidatos.Add(candidato)
+        End While
 
-        For Each cargo In cargos
+        con.Close()
+        Call CrearPapeleta(listaCandidatos, cargo.Nombre)
+        If listaCargos.Count > (indice + 1) Then
+            cargo = listaCargos(indice + 1)
+            Me.BtnSiguiente.Text = cargo.Nombre
+        End If
 
-            Dim cargoLabel As New Label()
-            cargoLabel.Width = 200
-            cargoLabel.Height = 30
-            cargoLabel.Text = cargo.Nombre
-            cargoLabel.Font = New Font("Segoe UI", 12, FontStyle.Bold)
-            cargoLabel.TextAlign = ContentAlignment.MiddleCenter
+        If 0 <= indice - 1 Then
+            cargo = listaCargos(indice - 1)
+            Me.BtnAtras.Text = cargo.Nombre
+        End If
+        Me.BtnAtras.Visible = indice > 0
+        Me.BtnSiguiente.Visible = listaCargos.Count > (indice + 1)
+        Me.BtnTerminar.Visible = listaCargos.Count = (indice + 1)
+    End Sub
 
+    Sub CrearPapeleta(lista As List(Of Candidato), titulo As String) '
 
-            Dim filaPanel As New FlowLayoutPanel()
-            filaPanel.FlowDirection = FlowDirection.LeftToRight
-            filaPanel.WrapContents = False
-
-
-            For Each candidato In cargo.Candidatos
-
-                Dim card As New Panel()
-                card.Width = 200
-                card.Height = 250
-                card.BackColor = Color.White
-
-
-                AddHandler card.Click, Sub(sender As Object, e As EventArgs)
-
-                                           Dim votoExistente As Voto = votos.Find(Function(v) v.CargoId = cargo.Id)
-                                           If votoExistente IsNot Nothing Then
-
-                                               votos.Remove(votoExistente)
-                                           End If
-
-
-                                           Dim voto As New Voto()
-                                           voto.CargoId = cargo.Id
-                                           voto.CandidatoId = candidato.Id
-                                           votos.Add(voto)
-
-
-                                           card.BackColor = Color.LightGreen
-                                       End Sub
-
-                Dim pictureBox As New PictureBox()
-                pictureBox.Width = 180
-                pictureBox.Height = 120
-                pictureBox.Location = New Point(10, 10)
-                If candidato.Imagen IsNot Nothing Then
-                    Using stream As New MemoryStream(candidato.Imagen)
-                        pictureBox.Image = Image.FromStream(stream)
-                    End Using
-                End If
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom
+        While PnlPapeleta.Controls.Count > 0
+            Dim control As Control = PnlPapeleta.Controls(0)
+            PnlPapeleta.Controls.Remove(control)
+            control.Dispose()
+        End While
 
 
-                Dim nameLabel As New Label()
-                nameLabel.Width = 180
-                nameLabel.Height = 30
-                nameLabel.Location = New Point(10, 140)
-                nameLabel.Text = candidato.Nombre
-                nameLabel.Font = New Font("Segoe UI", 12, FontStyle.Bold)
-                nameLabel.TextAlign = ContentAlignment.MiddleCenter
+        Dim x As Integer = 0
+        Dim y As Integer = 0
+        Dim margin As Integer = 50
 
+        Dim lblTitulo As New Label()
+        lblTitulo.Text = titulo
+        lblTitulo.Location = New Point(x, y)
+        Me.PnlPapeleta.Controls.Add(lblTitulo)
 
-                card.Controls.Add(pictureBox)
-                card.Controls.Add(nameLabel)
+        For Each candidato As Candidato In lista
+            If candidato.Muni = _Muni Or (candidato.Muni = 0 And candidato.Dpt = _Dpt) Or (candidato.Muni = 0 And candidato.Dpt = 0) Then
+                Dim ImgCandidato As New PictureBox()
+                Using ms As New MemoryStream(candidato.Imagen)
+                    ImgCandidato.Image = Image.FromStream(ms)
+                End Using
+                ImgCandidato.Location = New Point(x, lblTitulo.Bottom + 1)
+                ImgCandidato.Size = New Size(200, 200)
+                ImgCandidato.SizeMode = PictureBoxSizeMode.Zoom
+                Me.PnlPapeleta.Controls.Add(ImgCandidato)
 
+                Dim LblNombre As New Label()
+                LblNombre.Text = candidato.Nombre
+                LblNombre.Location = New Point(x, ImgCandidato.Bottom + 1)
+                LblNombre.AutoSize = False
+                LblNombre.Size = New Size(ImgCandidato.Width, LblNombre.Height)
+                LblNombre.TextAlign = ContentAlignment.MiddleCenter
+                Me.PnlPapeleta.Controls.Add(LblNombre)
 
-                filaPanel.Controls.Add(card)
+                Dim LblPartido As New Label()
+                LblPartido.Text = candidato.Partido
+                LblPartido.Location = New Point(x, LblNombre.Bottom + 1)
+                LblPartido.AutoSize = False
+                LblPartido.Size = New Size(ImgCandidato.Width, LblNombre.Height)
+                LblPartido.TextAlign = ContentAlignment.MiddleCenter
+                Me.PnlPapeleta.Controls.Add(LblPartido)
 
-            Next
+                Dim BtnVotar As New Button()
+                BtnVotar.Text = "Votar"
+                For Each c In listaCandSeleccionados
+                    If c.Id = candidato.Id Then
+                        BtnVotar.Text = "Quitar voto"
+                    End If
+                Next
 
+                BtnVotar.Location = New Point(x, LblPartido.Bottom + 1)
+                BtnVotar.AutoSize = False
+                BtnVotar.Size = New Size(ImgCandidato.Width, LblNombre.Height)
+                BtnVotar.TextAlign = ContentAlignment.MiddleCenter
+                AddHandler BtnVotar.Click, Sub() Votar(candidato)
+                Me.PnlPapeleta.Controls.Add(BtnVotar)
 
-            papeletaPanel.Controls.Add(cargoLabel)
-            papeletaPanel.Controls.Add(filaPanel)
+                x += ImgCandidato.Width + margin
+            End If
         Next
+    End Sub
 
-        PnlPapeletas.Controls.Add(papeletaPanel)
+    Sub Votar(candidato As Candidato)
+        Dim existe As Boolean = False
+        For i As Integer = listaCandSeleccionados.Count - 1 To 0 Step -1
+            Dim c As Candidato = listaCandSeleccionados(i)
+            If Not existe Then
+                existe = c.Id = candidato.Id
+                If existe Or c.CargoId = candidato.CargoId Then
+                    listaCandSeleccionados.RemoveAt(i)
+                End If
+            End If
+        Next
+        If Not existe Then
+            listaCandSeleccionados.Add(candidato)
+            Dim ultCargo As Cargo = listaCargos.Last()
+            If candidato.CargoId = ultCargo.Id Then
+                Me.BtnTerminar.PerformClick()
+            Else
+                Me.BtnSiguiente.PerformClick()
+            End If
+        Else
+            For Each control As Control In Me.PnlPapeleta.Controls
+                If TypeOf control Is Button Then
+                    Dim button As Button = CType(control, Button)
+                    button.Text = "Votar"
+                End If
+            Next
+        End If
 
     End Sub
 
+    Private Sub BtnAtras_Click(sender As Object, e As EventArgs) Handles BtnAtras.Click
+        _index = _index - 1
+        Me.BtnAtras.Enabled = _index > 0
+        Call ObtenerCandidatos(_index)
+    End Sub
 
+    Private Sub BtnSiguiente_Click(sender As Object, e As EventArgs) Handles BtnSiguiente.Click
+        _index = _index + 1
+        Call ObtenerCandidatos(_index)
+        Me.BtnAtras.Enabled = _index > 0
+    End Sub
 
+    Private Sub BtnTerminar_Click(sender As Object, e As EventArgs) Handles BtnTerminar.Click
+        Dim Resumen As New ResumenVotacion(listaCandSeleccionados, _idUsuario, listaCargos)
+        Resumen.Show()
+        Me.Dispose()
+    End Sub
 End Class

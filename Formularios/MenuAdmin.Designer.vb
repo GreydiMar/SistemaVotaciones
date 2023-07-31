@@ -27,6 +27,8 @@ Partial Class MenuAdmin
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DgvCargos = New System.Windows.Forms.DataGridView()
+        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TxtIdCargo = New System.Windows.Forms.TextBox()
         Me.TxtNombreCargo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -38,9 +40,13 @@ Partial Class MenuAdmin
         Me.BtnEditarCargo = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnEliminarCargo = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnCerrarSesionC = New System.Windows.Forms.ToolStripButton()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DGVPartidos = New System.Windows.Forms.DataGridView()
+        Me.IdPartido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NombrePartido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TxtIdPartido = New System.Windows.Forms.TextBox()
         Me.TxtNombrePartido = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -52,6 +58,8 @@ Partial Class MenuAdmin
         Me.BtnEditarPartido = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnEliminarPartido = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator15 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnCerrarSesionPa = New System.Windows.Forms.ToolStripButton()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.BtnCargarImagen = New System.Windows.Forms.Button()
         Me.ImgCandidatos = New System.Windows.Forms.PictureBox()
@@ -65,6 +73,13 @@ Partial Class MenuAdmin
         Me.CmbCargos = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.DGVCandidatos = New System.Windows.Forms.DataGridView()
+        Me.CandidatoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CandidatoNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CandidatoCargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CandidatoPartido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DptCandidato = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MuniCandidato = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ImagenCandidato = New System.Windows.Forms.DataGridViewImageColumn()
         Me.TxtIdCandidato = New System.Windows.Forms.TextBox()
         Me.TxtNombreCandidato = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -76,6 +91,8 @@ Partial Class MenuAdmin
         Me.BtnEditarCandidato = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnEliminarCandidato = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator14 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnCerrarSsionC = New System.Windows.Forms.ToolStripButton()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TxtIdPersona = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -88,6 +105,8 @@ Partial Class MenuAdmin
         Me.BtnEditarPersona = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnEliminarPersona = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnCerrarSesionP = New System.Windows.Forms.ToolStripButton()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.CmbAldPersona = New System.Windows.Forms.ComboBox()
@@ -105,25 +124,6 @@ Partial Class MenuAdmin
         Me.DptPersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MuniPersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AldPersona = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CandidatoId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CandidatoNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CandidatoCargo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CandidatoPartido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DptCandidato = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MuniCandidato = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ImagenCandidato = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.IdPartido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombrePartido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ToolStripSeparator13 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BtnCerrarSesionP = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator14 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BtnCerrarSsionC = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator15 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BtnCerrarSesionPa = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BtnCerrarSesionC = New System.Windows.Forms.ToolStripButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DgvCargos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,11 +149,12 @@ Partial Class MenuAdmin
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(980, 470)
+        Me.TabControl1.Size = New System.Drawing.Size(980, 573)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
         '
+        Me.TabPage1.BackgroundImage = CType(resources.GetObject("TabPage1.BackgroundImage"), System.Drawing.Image)
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.DgvCargos)
         Me.TabPage1.Controls.Add(Me.TxtIdCargo)
@@ -163,7 +164,7 @@ Partial Class MenuAdmin
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(972, 444)
+        Me.TabPage1.Size = New System.Drawing.Size(972, 547)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "CARGOS"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -172,7 +173,7 @@ Partial Class MenuAdmin
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(14, 119)
+        Me.Label2.Location = New System.Drawing.Point(31, 183)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(195, 19)
         Me.Label2.TabIndex = 5
@@ -182,18 +183,32 @@ Partial Class MenuAdmin
         '
         Me.DgvCargos.AllowDrop = True
         Me.DgvCargos.AllowUserToOrderColumns = True
-        Me.DgvCargos.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DgvCargos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.DgvCargos.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DgvCargos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvCargos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nombre})
-        Me.DgvCargos.Location = New System.Drawing.Point(6, 141)
+        Me.DgvCargos.Location = New System.Drawing.Point(33, 205)
         Me.DgvCargos.Name = "DgvCargos"
-        Me.DgvCargos.Size = New System.Drawing.Size(960, 295)
+        Me.DgvCargos.RowHeadersVisible = False
+        Me.DgvCargos.Size = New System.Drawing.Size(918, 333)
         Me.DgvCargos.TabIndex = 4
+        '
+        'Id
+        '
+        Me.Id.HeaderText = "Id"
+        Me.Id.Name = "Id"
+        Me.Id.Visible = False
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.Width = 910
         '
         'TxtIdCargo
         '
         Me.TxtIdCargo.Enabled = False
-        Me.TxtIdCargo.Location = New System.Drawing.Point(815, 50)
+        Me.TxtIdCargo.Location = New System.Drawing.Point(804, 129)
         Me.TxtIdCargo.Name = "TxtIdCargo"
         Me.TxtIdCargo.Size = New System.Drawing.Size(141, 20)
         Me.TxtIdCargo.TabIndex = 2
@@ -201,15 +216,15 @@ Partial Class MenuAdmin
         '
         'TxtNombreCargo
         '
-        Me.TxtNombreCargo.Location = New System.Drawing.Point(18, 73)
+        Me.TxtNombreCargo.Location = New System.Drawing.Point(35, 155)
         Me.TxtNombreCargo.Name = "TxtNombreCargo"
-        Me.TxtNombreCargo.Size = New System.Drawing.Size(938, 20)
+        Me.TxtNombreCargo.Size = New System.Drawing.Size(910, 20)
         Me.TxtNombreCargo.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 57)
+        Me.Label1.Location = New System.Drawing.Point(32, 136)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(119, 13)
         Me.Label1.TabIndex = 1
@@ -275,8 +290,24 @@ Partial Class MenuAdmin
         Me.BtnEliminarCargo.Size = New System.Drawing.Size(54, 22)
         Me.BtnEliminarCargo.Text = "Eliminar"
         '
+        'ToolStripSeparator16
+        '
+        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
+        Me.ToolStripSeparator16.Size = New System.Drawing.Size(6, 25)
+        '
+        'BtnCerrarSesionC
+        '
+        Me.BtnCerrarSesionC.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.BtnCerrarSesionC.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnCerrarSesionC.Image = CType(resources.GetObject("BtnCerrarSesionC.Image"), System.Drawing.Image)
+        Me.BtnCerrarSesionC.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnCerrarSesionC.Name = "BtnCerrarSesionC"
+        Me.BtnCerrarSesionC.Size = New System.Drawing.Size(80, 22)
+        Me.BtnCerrarSesionC.Text = "Cerrar Sesión"
+        '
         'TabPage2
         '
+        Me.TabPage2.BackgroundImage = CType(resources.GetObject("TabPage2.BackgroundImage"), System.Drawing.Image)
         Me.TabPage2.Controls.Add(Me.Label4)
         Me.TabPage2.Controls.Add(Me.DGVPartidos)
         Me.TabPage2.Controls.Add(Me.TxtIdPartido)
@@ -286,7 +317,7 @@ Partial Class MenuAdmin
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(972, 444)
+        Me.TabPage2.Size = New System.Drawing.Size(972, 547)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "PARTIDOS"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -295,7 +326,7 @@ Partial Class MenuAdmin
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(17, 132)
+        Me.Label4.Location = New System.Drawing.Point(16, 213)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(207, 19)
         Me.Label4.TabIndex = 8
@@ -305,18 +336,32 @@ Partial Class MenuAdmin
         '
         Me.DGVPartidos.AllowDrop = True
         Me.DGVPartidos.AllowUserToOrderColumns = True
-        Me.DGVPartidos.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DGVPartidos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.DGVPartidos.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DGVPartidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVPartidos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdPartido, Me.NombrePartido})
-        Me.DGVPartidos.Location = New System.Drawing.Point(3, 154)
+        Me.DGVPartidos.Location = New System.Drawing.Point(20, 245)
         Me.DGVPartidos.Name = "DGVPartidos"
-        Me.DGVPartidos.Size = New System.Drawing.Size(963, 282)
+        Me.DGVPartidos.RowHeadersVisible = False
+        Me.DGVPartidos.Size = New System.Drawing.Size(915, 282)
         Me.DGVPartidos.TabIndex = 7
+        '
+        'IdPartido
+        '
+        Me.IdPartido.HeaderText = "Id"
+        Me.IdPartido.Name = "IdPartido"
+        Me.IdPartido.Visible = False
+        '
+        'NombrePartido
+        '
+        Me.NombrePartido.HeaderText = "Nombre"
+        Me.NombrePartido.Name = "NombrePartido"
+        Me.NombrePartido.Width = 910
         '
         'TxtIdPartido
         '
         Me.TxtIdPartido.Enabled = False
-        Me.TxtIdPartido.Location = New System.Drawing.Point(215, 65)
+        Me.TxtIdPartido.Location = New System.Drawing.Point(779, 133)
         Me.TxtIdPartido.Name = "TxtIdPartido"
         Me.TxtIdPartido.Size = New System.Drawing.Size(141, 20)
         Me.TxtIdPartido.TabIndex = 4
@@ -324,15 +369,15 @@ Partial Class MenuAdmin
         '
         'TxtNombrePartido
         '
-        Me.TxtNombrePartido.Location = New System.Drawing.Point(19, 88)
+        Me.TxtNombrePartido.Location = New System.Drawing.Point(20, 159)
         Me.TxtNombrePartido.Name = "TxtNombrePartido"
-        Me.TxtNombrePartido.Size = New System.Drawing.Size(914, 20)
+        Me.TxtNombrePartido.Size = New System.Drawing.Size(915, 20)
         Me.TxtNombrePartido.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(28, 72)
+        Me.Label3.Location = New System.Drawing.Point(17, 136)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(181, 13)
         Me.Label3.TabIndex = 2
@@ -398,8 +443,24 @@ Partial Class MenuAdmin
         Me.BtnEliminarPartido.Size = New System.Drawing.Size(54, 22)
         Me.BtnEliminarPartido.Text = "Eliminar"
         '
+        'ToolStripSeparator15
+        '
+        Me.ToolStripSeparator15.Name = "ToolStripSeparator15"
+        Me.ToolStripSeparator15.Size = New System.Drawing.Size(6, 25)
+        '
+        'BtnCerrarSesionPa
+        '
+        Me.BtnCerrarSesionPa.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.BtnCerrarSesionPa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnCerrarSesionPa.Image = CType(resources.GetObject("BtnCerrarSesionPa.Image"), System.Drawing.Image)
+        Me.BtnCerrarSesionPa.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnCerrarSesionPa.Name = "BtnCerrarSesionPa"
+        Me.BtnCerrarSesionPa.Size = New System.Drawing.Size(80, 22)
+        Me.BtnCerrarSesionPa.Text = "Cerrar Sesión"
+        '
         'TabPage3
         '
+        Me.TabPage3.BackgroundImage = CType(resources.GetObject("TabPage3.BackgroundImage"), System.Drawing.Image)
         Me.TabPage3.Controls.Add(Me.BtnCargarImagen)
         Me.TabPage3.Controls.Add(Me.ImgCandidatos)
         Me.TabPage3.Controls.Add(Me.LblMuniCmb)
@@ -419,14 +480,14 @@ Partial Class MenuAdmin
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(972, 444)
+        Me.TabPage3.Size = New System.Drawing.Size(972, 547)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "CANDIDATOS"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
         'BtnCargarImagen
         '
-        Me.BtnCargarImagen.Location = New System.Drawing.Point(819, 26)
+        Me.BtnCargarImagen.Location = New System.Drawing.Point(815, 128)
         Me.BtnCargarImagen.Name = "BtnCargarImagen"
         Me.BtnCargarImagen.Size = New System.Drawing.Size(132, 23)
         Me.BtnCargarImagen.TabIndex = 10
@@ -435,16 +496,16 @@ Partial Class MenuAdmin
         '
         'ImgCandidatos
         '
-        Me.ImgCandidatos.Location = New System.Drawing.Point(641, 55)
+        Me.ImgCandidatos.Location = New System.Drawing.Point(637, 157)
         Me.ImgCandidatos.Name = "ImgCandidatos"
-        Me.ImgCandidatos.Size = New System.Drawing.Size(310, 203)
+        Me.ImgCandidatos.Size = New System.Drawing.Size(262, 152)
         Me.ImgCandidatos.TabIndex = 24
         Me.ImgCandidatos.TabStop = False
         '
         'LblMuniCmb
         '
         Me.LblMuniCmb.AutoSize = True
-        Me.LblMuniCmb.Location = New System.Drawing.Point(267, 138)
+        Me.LblMuniCmb.Location = New System.Drawing.Point(263, 240)
         Me.LblMuniCmb.Name = "LblMuniCmb"
         Me.LblMuniCmb.Size = New System.Drawing.Size(70, 13)
         Me.LblMuniCmb.TabIndex = 21
@@ -455,7 +516,7 @@ Partial Class MenuAdmin
         '
         Me.CmbMuni.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbMuni.FormattingEnabled = True
-        Me.CmbMuni.Location = New System.Drawing.Point(258, 154)
+        Me.CmbMuni.Location = New System.Drawing.Point(254, 256)
         Me.CmbMuni.Name = "CmbMuni"
         Me.CmbMuni.Size = New System.Drawing.Size(341, 21)
         Me.CmbMuni.TabIndex = 9
@@ -464,7 +525,7 @@ Partial Class MenuAdmin
         'LblDptCmb
         '
         Me.LblDptCmb.AutoSize = True
-        Me.LblDptCmb.Location = New System.Drawing.Point(260, 88)
+        Me.LblDptCmb.Location = New System.Drawing.Point(256, 190)
         Me.LblDptCmb.Name = "LblDptCmb"
         Me.LblDptCmb.Size = New System.Drawing.Size(104, 13)
         Me.LblDptCmb.TabIndex = 19
@@ -475,7 +536,7 @@ Partial Class MenuAdmin
         '
         Me.CmbDpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbDpt.FormattingEnabled = True
-        Me.CmbDpt.Location = New System.Drawing.Point(256, 104)
+        Me.CmbDpt.Location = New System.Drawing.Point(252, 206)
         Me.CmbDpt.Name = "CmbDpt"
         Me.CmbDpt.Size = New System.Drawing.Size(342, 21)
         Me.CmbDpt.TabIndex = 8
@@ -484,7 +545,7 @@ Partial Class MenuAdmin
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(20, 138)
+        Me.Label8.Location = New System.Drawing.Point(16, 240)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(62, 13)
         Me.Label8.TabIndex = 17
@@ -494,7 +555,7 @@ Partial Class MenuAdmin
         '
         Me.CmbPartidos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbPartidos.FormattingEnabled = True
-        Me.CmbPartidos.Location = New System.Drawing.Point(23, 154)
+        Me.CmbPartidos.Location = New System.Drawing.Point(19, 256)
         Me.CmbPartidos.Name = "CmbPartidos"
         Me.CmbPartidos.Size = New System.Drawing.Size(226, 21)
         Me.CmbPartidos.TabIndex = 7
@@ -502,7 +563,7 @@ Partial Class MenuAdmin
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(20, 88)
+        Me.Label7.Location = New System.Drawing.Point(16, 190)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(52, 13)
         Me.Label7.TabIndex = 15
@@ -512,7 +573,7 @@ Partial Class MenuAdmin
         '
         Me.CmbCargos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbCargos.FormattingEnabled = True
-        Me.CmbCargos.Location = New System.Drawing.Point(22, 104)
+        Me.CmbCargos.Location = New System.Drawing.Point(18, 206)
         Me.CmbCargos.Name = "CmbCargos"
         Me.CmbCargos.Size = New System.Drawing.Size(228, 21)
         Me.CmbCargos.TabIndex = 6
@@ -521,7 +582,7 @@ Partial Class MenuAdmin
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(6, 215)
+        Me.Label5.Location = New System.Drawing.Point(25, 307)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(233, 19)
         Me.Label5.TabIndex = 13
@@ -531,20 +592,64 @@ Partial Class MenuAdmin
         '
         Me.DGVCandidatos.AllowDrop = True
         Me.DGVCandidatos.AllowUserToOrderColumns = True
-        Me.DGVCandidatos.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DGVCandidatos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.DGVCandidatos.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DGVCandidatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.DGVCandidatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVCandidatos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CandidatoId, Me.CandidatoNombre, Me.CandidatoCargo, Me.CandidatoPartido, Me.DptCandidato, Me.MuniCandidato, Me.ImagenCandidato})
-        Me.DGVCandidatos.Location = New System.Drawing.Point(21, 264)
+        Me.DGVCandidatos.Location = New System.Drawing.Point(29, 332)
         Me.DGVCandidatos.Name = "DGVCandidatos"
+        Me.DGVCandidatos.RowHeadersVisible = False
         Me.DGVCandidatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DGVCandidatos.Size = New System.Drawing.Size(945, 161)
+        Me.DGVCandidatos.Size = New System.Drawing.Size(918, 206)
         Me.DGVCandidatos.TabIndex = 12
+        '
+        'CandidatoId
+        '
+        Me.CandidatoId.HeaderText = "Id"
+        Me.CandidatoId.Name = "CandidatoId"
+        Me.CandidatoId.Visible = False
+        '
+        'CandidatoNombre
+        '
+        Me.CandidatoNombre.HeaderText = "Nombre"
+        Me.CandidatoNombre.Name = "CandidatoNombre"
+        Me.CandidatoNombre.Width = 200
+        '
+        'CandidatoCargo
+        '
+        Me.CandidatoCargo.HeaderText = "Cargo"
+        Me.CandidatoCargo.Name = "CandidatoCargo"
+        Me.CandidatoCargo.Width = 150
+        '
+        'CandidatoPartido
+        '
+        Me.CandidatoPartido.HeaderText = "Partido"
+        Me.CandidatoPartido.Name = "CandidatoPartido"
+        Me.CandidatoPartido.Width = 150
+        '
+        'DptCandidato
+        '
+        Me.DptCandidato.HeaderText = "Departamento"
+        Me.DptCandidato.Name = "DptCandidato"
+        Me.DptCandidato.Width = 200
+        '
+        'MuniCandidato
+        '
+        Me.MuniCandidato.HeaderText = "Municipio"
+        Me.MuniCandidato.Name = "MuniCandidato"
+        Me.MuniCandidato.Width = 200
+        '
+        'ImagenCandidato
+        '
+        Me.ImagenCandidato.HeaderText = "Imagen"
+        Me.ImagenCandidato.Name = "ImagenCandidato"
+        Me.ImagenCandidato.Visible = False
         '
         'TxtIdCandidato
         '
         Me.TxtIdCandidato.Enabled = False
-        Me.TxtIdCandidato.Location = New System.Drawing.Point(6, 431)
+        Me.TxtIdCandidato.Location = New System.Drawing.Point(543, 306)
         Me.TxtIdCandidato.Name = "TxtIdCandidato"
         Me.TxtIdCandidato.Size = New System.Drawing.Size(39, 20)
         Me.TxtIdCandidato.TabIndex = 11
@@ -552,7 +657,7 @@ Partial Class MenuAdmin
         '
         'TxtNombreCandidato
         '
-        Me.TxtNombreCandidato.Location = New System.Drawing.Point(21, 58)
+        Me.TxtNombreCandidato.Location = New System.Drawing.Point(17, 160)
         Me.TxtNombreCandidato.Name = "TxtNombreCandidato"
         Me.TxtNombreCandidato.Size = New System.Drawing.Size(577, 20)
         Me.TxtNombreCandidato.TabIndex = 5
@@ -560,7 +665,7 @@ Partial Class MenuAdmin
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(18, 42)
+        Me.Label6.Location = New System.Drawing.Point(14, 144)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(54, 13)
         Me.Label6.TabIndex = 9
@@ -626,8 +731,24 @@ Partial Class MenuAdmin
         Me.BtnEliminarCandidato.Size = New System.Drawing.Size(54, 22)
         Me.BtnEliminarCandidato.Text = "Eliminar"
         '
+        'ToolStripSeparator14
+        '
+        Me.ToolStripSeparator14.Name = "ToolStripSeparator14"
+        Me.ToolStripSeparator14.Size = New System.Drawing.Size(6, 25)
+        '
+        'BtnCerrarSsionC
+        '
+        Me.BtnCerrarSsionC.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.BtnCerrarSsionC.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnCerrarSsionC.Image = CType(resources.GetObject("BtnCerrarSsionC.Image"), System.Drawing.Image)
+        Me.BtnCerrarSsionC.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnCerrarSsionC.Name = "BtnCerrarSsionC"
+        Me.BtnCerrarSsionC.Size = New System.Drawing.Size(80, 22)
+        Me.BtnCerrarSsionC.Text = "Cerrar Sesión"
+        '
         'TabPage4
         '
+        Me.TabPage4.BackgroundImage = CType(resources.GetObject("TabPage4.BackgroundImage"), System.Drawing.Image)
         Me.TabPage4.Controls.Add(Me.TxtIdPersona)
         Me.TabPage4.Controls.Add(Me.Label15)
         Me.TabPage4.Controls.Add(Me.TxtDniPersona)
@@ -646,14 +767,14 @@ Partial Class MenuAdmin
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(972, 444)
+        Me.TabPage4.Size = New System.Drawing.Size(972, 547)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "REGISTRO NACIONAL"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
         'TxtIdPersona
         '
-        Me.TxtIdPersona.Location = New System.Drawing.Point(210, 39)
+        Me.TxtIdPersona.Location = New System.Drawing.Point(240, 131)
         Me.TxtIdPersona.Name = "TxtIdPersona"
         Me.TxtIdPersona.Size = New System.Drawing.Size(48, 20)
         Me.TxtIdPersona.TabIndex = 32
@@ -662,7 +783,7 @@ Partial Class MenuAdmin
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(232, 66)
+        Me.Label15.Location = New System.Drawing.Point(262, 158)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(26, 13)
         Me.Label15.TabIndex = 31
@@ -670,7 +791,7 @@ Partial Class MenuAdmin
         '
         'TxtDniPersona
         '
-        Me.TxtDniPersona.Location = New System.Drawing.Point(235, 82)
+        Me.TxtDniPersona.Location = New System.Drawing.Point(265, 174)
         Me.TxtDniPersona.Name = "TxtDniPersona"
         Me.TxtDniPersona.Size = New System.Drawing.Size(227, 20)
         Me.TxtDniPersona.TabIndex = 12
@@ -735,11 +856,26 @@ Partial Class MenuAdmin
         Me.BtnEliminarPersona.Size = New System.Drawing.Size(54, 22)
         Me.BtnEliminarPersona.Text = "Eliminar"
         '
+        'ToolStripSeparator13
+        '
+        Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
+        Me.ToolStripSeparator13.Size = New System.Drawing.Size(6, 25)
+        '
+        'BtnCerrarSesionP
+        '
+        Me.BtnCerrarSesionP.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.BtnCerrarSesionP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.BtnCerrarSesionP.Image = CType(resources.GetObject("BtnCerrarSesionP.Image"), System.Drawing.Image)
+        Me.BtnCerrarSesionP.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnCerrarSesionP.Name = "BtnCerrarSesionP"
+        Me.BtnCerrarSesionP.Size = New System.Drawing.Size(80, 22)
+        Me.BtnCerrarSesionP.Text = "Cerrar Sesión"
+        '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(10, 40)
+        Me.Label14.Location = New System.Drawing.Point(28, 130)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(162, 19)
         Me.Label14.TabIndex = 28
@@ -748,7 +884,7 @@ Partial Class MenuAdmin
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(281, 118)
+        Me.Label13.Location = New System.Drawing.Point(311, 210)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(49, 13)
         Me.Label13.TabIndex = 27
@@ -758,7 +894,7 @@ Partial Class MenuAdmin
         '
         Me.CmbAldPersona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbAldPersona.FormattingEnabled = True
-        Me.CmbAldPersona.Location = New System.Drawing.Point(284, 134)
+        Me.CmbAldPersona.Location = New System.Drawing.Point(314, 226)
         Me.CmbAldPersona.Name = "CmbAldPersona"
         Me.CmbAldPersona.Size = New System.Drawing.Size(156, 21)
         Me.CmbAldPersona.TabIndex = 15
@@ -766,7 +902,7 @@ Partial Class MenuAdmin
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(146, 118)
+        Me.Label11.Location = New System.Drawing.Point(176, 210)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(70, 13)
         Me.Label11.TabIndex = 25
@@ -776,7 +912,7 @@ Partial Class MenuAdmin
         '
         Me.CmbMuniPersona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbMuniPersona.FormattingEnabled = True
-        Me.CmbMuniPersona.Location = New System.Drawing.Point(147, 134)
+        Me.CmbMuniPersona.Location = New System.Drawing.Point(177, 226)
         Me.CmbMuniPersona.Name = "CmbMuniPersona"
         Me.CmbMuniPersona.Size = New System.Drawing.Size(131, 21)
         Me.CmbMuniPersona.TabIndex = 14
@@ -784,7 +920,7 @@ Partial Class MenuAdmin
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(11, 118)
+        Me.Label12.Location = New System.Drawing.Point(29, 210)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(104, 13)
         Me.Label12.TabIndex = 23
@@ -794,14 +930,14 @@ Partial Class MenuAdmin
         '
         Me.CmbDptPersona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbDptPersona.FormattingEnabled = True
-        Me.CmbDptPersona.Location = New System.Drawing.Point(7, 134)
+        Me.CmbDptPersona.Location = New System.Drawing.Point(32, 226)
         Me.CmbDptPersona.Name = "CmbDptPersona"
         Me.CmbDptPersona.Size = New System.Drawing.Size(134, 21)
         Me.CmbDptPersona.TabIndex = 13
         '
         'TxtNombrePersona
         '
-        Me.TxtNombrePersona.Location = New System.Drawing.Point(7, 82)
+        Me.TxtNombrePersona.Location = New System.Drawing.Point(32, 174)
         Me.TxtNombrePersona.Name = "TxtNombrePersona"
         Me.TxtNombrePersona.Size = New System.Drawing.Size(222, 20)
         Me.TxtNombrePersona.TabIndex = 11
@@ -809,7 +945,7 @@ Partial Class MenuAdmin
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(4, 66)
+        Me.Label10.Location = New System.Drawing.Point(29, 158)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(54, 13)
         Me.Label10.TabIndex = 16
@@ -819,7 +955,7 @@ Partial Class MenuAdmin
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(10, 187)
+        Me.Label9.Location = New System.Drawing.Point(28, 266)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(211, 19)
         Me.Label9.TabIndex = 15
@@ -829,14 +965,16 @@ Partial Class MenuAdmin
         '
         Me.DgvPersonas.AllowDrop = True
         Me.DgvPersonas.AllowUserToOrderColumns = True
-        Me.DgvPersonas.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DgvPersonas.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.DgvPersonas.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DgvPersonas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.DgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvPersonas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdPersona, Me.NombrePersona, Me.DNIPersona, Me.DptPersona, Me.MuniPersona, Me.AldPersona})
-        Me.DgvPersonas.Location = New System.Drawing.Point(14, 222)
+        Me.DgvPersonas.Location = New System.Drawing.Point(32, 302)
         Me.DgvPersonas.Name = "DgvPersonas"
+        Me.DgvPersonas.RowHeadersVisible = False
         Me.DgvPersonas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPersonas.Size = New System.Drawing.Size(952, 214)
+        Me.DgvPersonas.Size = New System.Drawing.Size(905, 236)
         Me.DgvPersonas.TabIndex = 14
         '
         'IdPersona
@@ -874,138 +1012,14 @@ Partial Class MenuAdmin
         Me.AldPersona.Name = "AldPersona"
         Me.AldPersona.Width = 200
         '
-        'CandidatoId
-        '
-        Me.CandidatoId.HeaderText = "Id"
-        Me.CandidatoId.Name = "CandidatoId"
-        Me.CandidatoId.Visible = False
-        '
-        'CandidatoNombre
-        '
-        Me.CandidatoNombre.HeaderText = "Nombre"
-        Me.CandidatoNombre.Name = "CandidatoNombre"
-        Me.CandidatoNombre.Width = 200
-        '
-        'CandidatoCargo
-        '
-        Me.CandidatoCargo.HeaderText = "Cargo"
-        Me.CandidatoCargo.Name = "CandidatoCargo"
-        Me.CandidatoCargo.Width = 150
-        '
-        'CandidatoPartido
-        '
-        Me.CandidatoPartido.HeaderText = "Partido"
-        Me.CandidatoPartido.Name = "CandidatoPartido"
-        Me.CandidatoPartido.Width = 150
-        '
-        'DptCandidato
-        '
-        Me.DptCandidato.HeaderText = "Departamento"
-        Me.DptCandidato.Name = "DptCandidato"
-        Me.DptCandidato.Width = 200
-        '
-        'MuniCandidato
-        '
-        Me.MuniCandidato.HeaderText = "Municipio"
-        Me.MuniCandidato.Name = "MuniCandidato"
-        Me.MuniCandidato.Width = 200
-        '
-        'ImagenCandidato
-        '
-        Me.ImagenCandidato.HeaderText = "Imagen"
-        Me.ImagenCandidato.Name = "ImagenCandidato"
-        Me.ImagenCandidato.Visible = False
-        '
-        'IdPartido
-        '
-        Me.IdPartido.HeaderText = "Id"
-        Me.IdPartido.Name = "IdPartido"
-        Me.IdPartido.Visible = False
-        '
-        'NombrePartido
-        '
-        Me.NombrePartido.HeaderText = "Nombre"
-        Me.NombrePartido.Name = "NombrePartido"
-        Me.NombrePartido.Width = 910
-        '
-        'Id
-        '
-        Me.Id.HeaderText = "Id"
-        Me.Id.Name = "Id"
-        Me.Id.Visible = False
-        '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.Width = 910
-        '
-        'ToolStripSeparator13
-        '
-        Me.ToolStripSeparator13.Name = "ToolStripSeparator13"
-        Me.ToolStripSeparator13.Size = New System.Drawing.Size(6, 25)
-        '
-        'BtnCerrarSesionP
-        '
-        Me.BtnCerrarSesionP.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.BtnCerrarSesionP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.BtnCerrarSesionP.Image = CType(resources.GetObject("BtnCerrarSesionP.Image"), System.Drawing.Image)
-        Me.BtnCerrarSesionP.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnCerrarSesionP.Name = "BtnCerrarSesionP"
-        Me.BtnCerrarSesionP.Size = New System.Drawing.Size(80, 22)
-        Me.BtnCerrarSesionP.Text = "Cerrar Sesión"
-        '
-        'ToolStripSeparator14
-        '
-        Me.ToolStripSeparator14.Name = "ToolStripSeparator14"
-        Me.ToolStripSeparator14.Size = New System.Drawing.Size(6, 25)
-        '
-        'BtnCerrarSsionC
-        '
-        Me.BtnCerrarSsionC.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.BtnCerrarSsionC.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.BtnCerrarSsionC.Image = CType(resources.GetObject("BtnCerrarSsionC.Image"), System.Drawing.Image)
-        Me.BtnCerrarSsionC.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnCerrarSsionC.Name = "BtnCerrarSsionC"
-        Me.BtnCerrarSsionC.Size = New System.Drawing.Size(80, 22)
-        Me.BtnCerrarSsionC.Text = "Cerrar Sesión"
-        '
-        'ToolStripSeparator15
-        '
-        Me.ToolStripSeparator15.Name = "ToolStripSeparator15"
-        Me.ToolStripSeparator15.Size = New System.Drawing.Size(6, 25)
-        '
-        'BtnCerrarSesionPa
-        '
-        Me.BtnCerrarSesionPa.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.BtnCerrarSesionPa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.BtnCerrarSesionPa.Image = CType(resources.GetObject("BtnCerrarSesionPa.Image"), System.Drawing.Image)
-        Me.BtnCerrarSesionPa.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnCerrarSesionPa.Name = "BtnCerrarSesionPa"
-        Me.BtnCerrarSesionPa.Size = New System.Drawing.Size(80, 22)
-        Me.BtnCerrarSesionPa.Text = "Cerrar Sesión"
-        '
-        'ToolStripSeparator16
-        '
-        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
-        Me.ToolStripSeparator16.Size = New System.Drawing.Size(6, 25)
-        '
-        'BtnCerrarSesionC
-        '
-        Me.BtnCerrarSesionC.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.BtnCerrarSesionC.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.BtnCerrarSesionC.Image = CType(resources.GetObject("BtnCerrarSesionC.Image"), System.Drawing.Image)
-        Me.BtnCerrarSesionC.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnCerrarSesionC.Name = "BtnCerrarSesionC"
-        Me.BtnCerrarSesionC.Size = New System.Drawing.Size(80, 22)
-        Me.BtnCerrarSesionC.Text = "Cerrar Sesión"
-        '
         'MenuAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1004, 482)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.ClientSize = New System.Drawing.Size(1004, 584)
         Me.Controls.Add(Me.TabControl1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "MenuAdmin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "---"

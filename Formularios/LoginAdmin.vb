@@ -1,10 +1,18 @@
 ﻿Public Class LoginAdmin
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Configura el TextBox para mostrar el texto como contraseña
+        TxtContrasena.UseSystemPasswordChar = True
+    End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Trim(TxtDni.Text).Length = 0 Or Trim(TxtContrasena.Text).Length = 0 Then
             MessageBox.Show("Debe Ingresar el DNI o Contraseña, para continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TxtDni.Focus()
             Exit Sub
         End If
+
+
 
         Dim con As New SqlClient.SqlConnection(My.Settings.Votaciones)   'conexion a sql
 
@@ -30,5 +38,21 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Login.Show()
         Me.Dispose()
+    End Sub
+
+    Private Sub BtnMostrar_Click(sender As Object, e As EventArgs) Handles BtnMostrar.Click
+        TxtContrasena.UseSystemPasswordChar = Not TxtContrasena.UseSystemPasswordChar
+    End Sub
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        TxtDni.Text = ""
+    End Sub
+
+    Private Sub TxtDni_TextChanged(sender As Object, e As EventArgs) Handles TxtDni.TextChanged
+        Me.btnLimpiar.Visible = Me.TxtDni.Text <> ""
+    End Sub
+
+    Private Sub TxtContrasena_TextChanged(sender As Object, e As EventArgs) Handles TxtContrasena.TextChanged
+        Me.BtnMostrar.Visible = Me.TxtContrasena.Text <> ""
     End Sub
 End Class

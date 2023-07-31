@@ -1,7 +1,4 @@
 ﻿Public Class Login
-    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Trim(TxtDni.Text).Length = 0 Then
@@ -37,5 +34,17 @@
     Private Sub BtnAdmin_Click(sender As Object, e As EventArgs) Handles BtnAdmin.Click
         LoginAdmin.Show()
         Me.Dispose()
+    End Sub
+
+    Private Sub TxtDni_TextChanged(sender As Object, e As EventArgs) Handles TxtDni.TextChanged
+        Me.btnLimpiar.Visible = Me.TxtDni.Text <> ""
+    End Sub
+
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        TxtDni.Text = ""
     End Sub
 End Class

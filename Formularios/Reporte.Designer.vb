@@ -67,7 +67,7 @@ Partial Class Reporte
         Me.MenuCandidatos = New System.Windows.Forms.ToolStrip()
         Me.BtnAdmin = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BtnCerrarSsionC = New System.Windows.Forms.ToolStripButton()
+        Me.BtnCerrarSesion = New System.Windows.Forms.ToolStripButton()
         CType(Me.DGVCandidatos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvGanadores, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuCandidatos.SuspendLayout()
@@ -443,7 +443,7 @@ Partial Class Reporte
         '
         'MenuCandidatos
         '
-        Me.MenuCandidatos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnAdmin, Me.ToolStripSeparator7, Me.BtnCerrarSsionC})
+        Me.MenuCandidatos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnAdmin, Me.ToolStripSeparator7, Me.BtnCerrarSesion})
         Me.MenuCandidatos.Location = New System.Drawing.Point(0, 0)
         Me.MenuCandidatos.Name = "MenuCandidatos"
         Me.MenuCandidatos.Size = New System.Drawing.Size(1136, 25)
@@ -463,14 +463,14 @@ Partial Class Reporte
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
         Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 25)
         '
-        'BtnCerrarSsionC
+        'BtnCerrarSesion
         '
-        Me.BtnCerrarSsionC.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.BtnCerrarSsionC.Image = CType(resources.GetObject("BtnCerrarSsionC.Image"), System.Drawing.Image)
-        Me.BtnCerrarSsionC.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.BtnCerrarSsionC.Name = "BtnCerrarSsionC"
-        Me.BtnCerrarSsionC.Size = New System.Drawing.Size(96, 22)
-        Me.BtnCerrarSsionC.Text = "Cerrar Sesión"
+        Me.BtnCerrarSesion.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.BtnCerrarSesion.Image = CType(resources.GetObject("BtnCerrarSesion.Image"), System.Drawing.Image)
+        Me.BtnCerrarSesion.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnCerrarSesion.Name = "BtnCerrarSesion"
+        Me.BtnCerrarSesion.Size = New System.Drawing.Size(96, 22)
+        Me.BtnCerrarSesion.Text = "Cerrar Sesión"
         '
         'Reporte
         '
@@ -570,5 +570,5 @@ Partial Class Reporte
     Friend WithEvents MenuCandidatos As ToolStrip
     Friend WithEvents BtnAdmin As ToolStripButton
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
-    Friend WithEvents BtnCerrarSsionC As ToolStripButton
+    Friend WithEvents BtnCerrarSesion As ToolStripButton
 End Class

@@ -75,12 +75,12 @@ Partial Class ResumenVotacion
         '
         'LblPartidoPresidente
         '
-        Me.LblPartidoPresidente.Location = New System.Drawing.Point(21, 304)
+        Me.LblPartidoPresidente.Location = New System.Drawing.Point(21, 322)
         Me.LblPartidoPresidente.Name = "LblPartidoPresidente"
-        Me.LblPartidoPresidente.Size = New System.Drawing.Size(209, 20)
+        Me.LblPartidoPresidente.Size = New System.Drawing.Size(209, 62)
         Me.LblPartidoPresidente.TabIndex = 4
         Me.LblPartidoPresidente.Text = "---"
-        Me.LblPartidoPresidente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblPartidoPresidente.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Label4
         '
@@ -102,12 +102,12 @@ Partial Class ResumenVotacion
         '
         'LblPartidoDiputado
         '
-        Me.LblPartidoDiputado.Location = New System.Drawing.Point(260, 304)
+        Me.LblPartidoDiputado.Location = New System.Drawing.Point(260, 322)
         Me.LblPartidoDiputado.Name = "LblPartidoDiputado"
-        Me.LblPartidoDiputado.Size = New System.Drawing.Size(209, 20)
+        Me.LblPartidoDiputado.Size = New System.Drawing.Size(209, 62)
         Me.LblPartidoDiputado.TabIndex = 8
         Me.LblPartidoDiputado.Text = "---"
-        Me.LblPartidoDiputado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblPartidoDiputado.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'LblNombreDiputado
         '
@@ -139,12 +139,12 @@ Partial Class ResumenVotacion
         '
         'LblPartidoAlcalde
         '
-        Me.LblPartidoAlcalde.Location = New System.Drawing.Point(504, 304)
+        Me.LblPartidoAlcalde.Location = New System.Drawing.Point(504, 322)
         Me.LblPartidoAlcalde.Name = "LblPartidoAlcalde"
-        Me.LblPartidoAlcalde.Size = New System.Drawing.Size(209, 20)
+        Me.LblPartidoAlcalde.Size = New System.Drawing.Size(209, 62)
         Me.LblPartidoAlcalde.TabIndex = 12
         Me.LblPartidoAlcalde.Text = "---"
-        Me.LblPartidoAlcalde.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblPartidoAlcalde.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'LblNombreAlcalde
         '
@@ -167,7 +167,7 @@ Partial Class ResumenVotacion
         '
         'BtnRegresar
         '
-        Me.BtnRegresar.Location = New System.Drawing.Point(25, 339)
+        Me.BtnRegresar.Location = New System.Drawing.Point(25, 387)
         Me.BtnRegresar.Name = "BtnRegresar"
         Me.BtnRegresar.Size = New System.Drawing.Size(170, 32)
         Me.BtnRegresar.TabIndex = 14
@@ -176,7 +176,7 @@ Partial Class ResumenVotacion
         '
         'BtnConfirmar
         '
-        Me.BtnConfirmar.Location = New System.Drawing.Point(543, 339)
+        Me.BtnConfirmar.Location = New System.Drawing.Point(543, 387)
         Me.BtnConfirmar.Name = "BtnConfirmar"
         Me.BtnConfirmar.Size = New System.Drawing.Size(170, 32)
         Me.BtnConfirmar.TabIndex = 15
@@ -187,8 +187,8 @@ Partial Class ResumenVotacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.AliceBlue
-        Me.ClientSize = New System.Drawing.Size(755, 383)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(761, 431)
         Me.Controls.Add(Me.BtnConfirmar)
         Me.Controls.Add(Me.BtnRegresar)
         Me.Controls.Add(Me.Label3)
@@ -205,6 +205,7 @@ Partial Class ResumenVotacion
         Me.Controls.Add(Me.ImgPresidente)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "ResumenVotacion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

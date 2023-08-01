@@ -515,7 +515,7 @@
         qwxeAq2/m9o9Bgo3llrq/wOkDceG2IL5RQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="BtnCerrarSsionC.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnCerrarSesion.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABONSURBVHhe7d1PriRZecbhHiFsGY/d8tCyPTN4M0Z4M0aM
@@ -608,7 +608,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA9QAAAJyCAIAAACqhB+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7s/VesXdfW54nxxUZVuasfDNgwyrCr3IBfDKNtl/vJgP1go+3urvpQ
+        wAAADsABataJCQAA/7JJREFUeF7s/VesXdfW54nxxUZVuasfDNgwyrCr3IBfDKNtl/vJgP1go+3urvpQ
         MBqFdtuwUX6xYaC7ROVIJSrnHK+kexWv0r0SRTFLVzlQEinmnA4zxXRI3Xy/+fk/xphzrLHmWnufc8ij
         xaA/8dPWOmuHs8Oac/72/4w515z3TyVCCCGEEELIAFC+CSGEEEIIGQjKNyGEEEIIIQNB+SaEEEIIIWQg
         KN+EEEIIIYQMBOWbEEIIIYSQgaB8E0IIIYQQMhCUb0IIIYQQQgaC8k0IIYQQQshAUL4JIYQQQggZCMo3

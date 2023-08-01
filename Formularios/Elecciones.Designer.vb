@@ -29,7 +29,9 @@ Partial Class Elecciones
         Me.BtnAtras = New System.Windows.Forms.Button()
         Me.BtnTerminar = New System.Windows.Forms.Button()
         Me.imgAtras = New System.Windows.Forms.PictureBox()
+        Me.imgSiguiente = New System.Windows.Forms.PictureBox()
         CType(Me.imgAtras, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imgSiguiente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LblVotante
@@ -47,27 +49,30 @@ Partial Class Elecciones
         'PnlPapeleta
         '
         Me.PnlPapeleta.BackColor = System.Drawing.Color.Transparent
-        Me.PnlPapeleta.Location = New System.Drawing.Point(12, 133)
+        Me.PnlPapeleta.Location = New System.Drawing.Point(12, 120)
         Me.PnlPapeleta.Name = "PnlPapeleta"
-        Me.PnlPapeleta.Size = New System.Drawing.Size(1240, 320)
+        Me.PnlPapeleta.Size = New System.Drawing.Size(1009, 501)
         Me.PnlPapeleta.TabIndex = 1
         '
         'BtnSiguiente
         '
-        Me.BtnSiguiente.Location = New System.Drawing.Point(1114, 459)
+        Me.BtnSiguiente.BackColor = System.Drawing.Color.Transparent
+        Me.BtnSiguiente.FlatAppearance.BorderSize = 0
+        Me.BtnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSiguiente.Location = New System.Drawing.Point(814, 636)
         Me.BtnSiguiente.Name = "BtnSiguiente"
         Me.BtnSiguiente.Size = New System.Drawing.Size(109, 28)
         Me.BtnSiguiente.TabIndex = 2
         Me.BtnSiguiente.Text = "Siguiente"
-        Me.BtnSiguiente.UseVisualStyleBackColor = True
+        Me.BtnSiguiente.UseVisualStyleBackColor = False
         '
         'BtnAtras
         '
-        Me.BtnAtras.BackColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.BtnAtras.BackColor = System.Drawing.Color.Transparent
         Me.BtnAtras.FlatAppearance.BorderSize = 0
         Me.BtnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAtras.Location = New System.Drawing.Point(56, 468)
+        Me.BtnAtras.Location = New System.Drawing.Point(81, 630)
         Me.BtnAtras.Name = "BtnAtras"
         Me.BtnAtras.Size = New System.Drawing.Size(99, 28)
         Me.BtnAtras.TabIndex = 3
@@ -76,7 +81,7 @@ Partial Class Elecciones
         '
         'BtnTerminar
         '
-        Me.BtnTerminar.Location = New System.Drawing.Point(563, 459)
+        Me.BtnTerminar.Location = New System.Drawing.Point(417, 627)
         Me.BtnTerminar.Name = "BtnTerminar"
         Me.BtnTerminar.Size = New System.Drawing.Size(154, 35)
         Me.BtnTerminar.TabIndex = 4
@@ -86,14 +91,25 @@ Partial Class Elecciones
         '
         'imgAtras
         '
-        Me.imgAtras.BackColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.imgAtras.BackColor = System.Drawing.Color.Transparent
         Me.imgAtras.Image = CType(resources.GetObject("imgAtras.Image"), System.Drawing.Image)
-        Me.imgAtras.Location = New System.Drawing.Point(11, 460)
+        Me.imgAtras.Location = New System.Drawing.Point(36, 622)
         Me.imgAtras.Name = "imgAtras"
         Me.imgAtras.Size = New System.Drawing.Size(71, 45)
         Me.imgAtras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.imgAtras.TabIndex = 0
         Me.imgAtras.TabStop = False
+        '
+        'imgSiguiente
+        '
+        Me.imgSiguiente.BackColor = System.Drawing.Color.Transparent
+        Me.imgSiguiente.Image = CType(resources.GetObject("imgSiguiente.Image"), System.Drawing.Image)
+        Me.imgSiguiente.Location = New System.Drawing.Point(912, 630)
+        Me.imgSiguiente.Name = "imgSiguiente"
+        Me.imgSiguiente.Size = New System.Drawing.Size(71, 45)
+        Me.imgSiguiente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.imgSiguiente.TabIndex = 5
+        Me.imgSiguiente.TabStop = False
         '
         'Elecciones
         '
@@ -101,7 +117,8 @@ Partial Class Elecciones
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(1258, 523)
+        Me.ClientSize = New System.Drawing.Size(1036, 677)
+        Me.Controls.Add(Me.imgSiguiente)
         Me.Controls.Add(Me.BtnTerminar)
         Me.Controls.Add(Me.BtnAtras)
         Me.Controls.Add(Me.BtnSiguiente)
@@ -111,10 +128,13 @@ Partial Class Elecciones
         Me.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Elecciones"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Elecciones"
         CType(Me.imgAtras, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imgSiguiente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -126,4 +146,5 @@ Partial Class Elecciones
     Friend WithEvents BtnAtras As Button
     Friend WithEvents BtnTerminar As Button
     Friend WithEvents imgAtras As PictureBox
+    Friend WithEvents imgSiguiente As PictureBox
 End Class

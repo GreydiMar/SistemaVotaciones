@@ -281,7 +281,7 @@
         Me.Dispose()
     End Sub
 
-    Private Sub BtnCerrarSsionC_Click(sender As Object, e As EventArgs) Handles BtnCerrarSsionC.Click
+    Private Sub BtnCerrarSesion_Click(sender As Object, e As EventArgs) Handles BtnCerrarSesion.Click
         Login.Show()
         Me.Dispose()
     End Sub

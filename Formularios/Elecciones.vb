@@ -115,6 +115,7 @@ Public Class Elecciones
         Me.BtnSiguiente.Visible = listaCargos.Count > (indice + 1)
         Me.BtnTerminar.Visible = listaCargos.Count = (indice + 1)
         Me.imgAtras.Visible = Me.BtnAtras.Visible
+        Me.imgSiguiente.Visible = Me.BtnSiguiente.Visible
     End Sub
 
     Sub CrearPapeleta(lista As List(Of Candidato), titulo As String) '
@@ -129,20 +130,46 @@ Public Class Elecciones
         Dim x As Integer = 0
         Dim y As Integer = 0
         Dim margin As Integer = 50
+        Dim numerofila As Integer = 1
 
         Dim lblTitulo As New Label()
         lblTitulo.Text = "Candidatos para: " & titulo
         lblTitulo.AutoSize = True
         lblTitulo.Location = New Point(x, y)
         Me.PnlPapeleta.Controls.Add(lblTitulo)
-
         For Each candidato As Candidato In lista
             If candidato.Muni = _Muni Or (candidato.Muni = 0 And candidato.Dpt = _Dpt) Or (candidato.Muni = 0 And candidato.Dpt = 0) Then
+                Dim partido As String = candidato.Partido
+                Dim Palabras As String() = partido.Split(" ")
+                Dim contador As Integer = 1
+                ' Crea una instancia de Graphics para medir el tamaño del texto
+                Dim g As Graphics = Me.CreateGraphics()
+
+                ' Crea una variable para almacenar el nuevo texto con saltos de línea
+                Dim newText As String = ""
+                ' Recorre cada palabra en el texto
+                For i As Integer = 0 To Palabras.Length - 1
+                    ' Agrega la palabra al nuevo texto
+                    newText &= Palabras(i) & " "
+                    ' Verifica si el tamaño del nuevo texto es mayor que el tamaño del Label
+                    If newText.Length > (15 * contador) Then
+                        ' Agrega un salto de línea antes de la palabra actual
+                        newText = newText.TrimEnd() & Environment.NewLine
+                        contador = contador + 1
+                    End If
+                Next
+                candidato.Partido = newText
+                numerofila = If(contador > numerofila, contador, numerofila)
+            End If
+        Next
+        For Each candidato As Candidato In lista
+            If candidato.Muni = _Muni Or (candidato.Muni = 0 And candidato.Dpt = _Dpt) Or (candidato.Muni = 0 And candidato.Dpt = 0) Then
+
                 Dim ImgCandidato As New PictureBox()
                 Using ms As New MemoryStream(candidato.Imagen)
                     ImgCandidato.Image = Image.FromStream(ms)
                 End Using
-                ImgCandidato.Location = New Point(x, lblTitulo.Bottom + 1)
+                ImgCandidato.Location = New Point(x, lblTitulo.Bottom + 30)
                 ImgCandidato.Size = New Size(200, 200)
                 ImgCandidato.SizeMode = PictureBoxSizeMode.Zoom
                 Me.PnlPapeleta.Controls.Add(ImgCandidato)
@@ -159,9 +186,12 @@ Public Class Elecciones
                 LblPartido.Text = candidato.Partido
                 LblPartido.Location = New Point(x, LblNombre.Bottom + 1)
                 LblPartido.AutoSize = False
-                LblPartido.Size = New Size(ImgCandidato.Width, LblNombre.Height)
+                LblPartido.Size = New Size(ImgCandidato.Width, 100)
                 LblPartido.TextAlign = ContentAlignment.MiddleCenter
                 Me.PnlPapeleta.Controls.Add(LblPartido)
+
+
+
 
                 Dim BtnVotar As New Button()
                 BtnVotar.Text = "Votar"
@@ -171,7 +201,7 @@ Public Class Elecciones
                     End If
                 Next
 
-                BtnVotar.Location = New Point(x, LblPartido.Bottom + 1)
+                BtnVotar.Location = New Point(x, (LblPartido.Bottom + 1))
                 BtnVotar.AutoSize = False
                 BtnVotar.Size = New Size(ImgCandidato.Width, 45)
                 BtnVotar.TextAlign = ContentAlignment.MiddleCenter
@@ -234,5 +264,9 @@ Public Class Elecciones
 
     Private Sub imgAtras_Click(sender As Object, e As EventArgs) Handles imgAtras.Click
         Me.BtnAtras.PerformClick
+    End Sub
+
+    Private Sub imgSiguiente_Click(sender As Object, e As EventArgs) Handles imgSiguiente.Click
+        Me.BtnSiguiente.PerformClick()
     End Sub
 End Class

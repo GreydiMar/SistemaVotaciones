@@ -74,7 +74,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Usuario.vb" />
+    <Compile Include="Clases\Candidato.vb" />
+    <Compile Include="Clases\Cargo.vb" />
+    <Compile Include="Clases\Voto.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +84,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Elecciones.Designer.vb">
+    <Compile Include="Formularios\Elecciones.designer.vb">
       <DependentUpon>Elecciones.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Elecciones.vb">
@@ -106,7 +108,13 @@
     <Compile Include="Formularios\MenuAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\ResumenVotacion.Designer.vb">
+    <Compile Include="Formularios\Reporte.Designer.vb">
+      <DependentUpon>Reporte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reporte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ResumenVotacion.designer.vb">
       <DependentUpon>ResumenVotacion.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\ResumenVotacion.vb">
@@ -151,6 +159,9 @@
     <EmbeddedResource Include="Formularios\MenuAdmin.resx">
       <DependentUpon>MenuAdmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reporte.resx">
+      <DependentUpon>Reporte.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\ResumenVotacion.resx">
       <DependentUpon>ResumenVotacion.vb</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +183,35 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Img\actualizar.png" />
+    <Content Include="Img\ANIBAL ERAZO ALVARADO.jpg" />
+    <Content Include="Img\archivo-nuevo.png" />
+    <Content Include="Img\cerrar-sesion.png" />
+    <Content Include="Img\chevron-derecho.png" />
+    <Content Include="Img\chevron-izquierdo.png" />
+    <Content Include="Img\disquete.png" />
+    <Content Include="Img\editar.png" />
+    <Content Include="Img\EDUARDO JOSE ELVIR FERRUFINO.jpg" />
+    <Content Include="Img\eliminar.png" />
+    <Content Include="Img\HECTOR DAVID ORELLANA GARCIA.jpg" />
+    <Content Include="Img\HERNAN ROBERTO CHINCHILLA VILLEDA.jpg" />
+    <Content Include="Img\HUGO DANILO CARVAJAL GARCIA.jpg" />
+    <Content Include="Img\informe-seo.png" />
+    <Content Include="Img\ISIS CAROLINA CUELLAR ERAZO.jpg" />
+    <Content Include="Img\MAIRON RANDOLFO GOMEZ GAVARRETE.jpg" />
+    <Content Include="Img\MARIO RENE HENRIQUEZ PINEDA.jpg" />
+    <Content Include="Img\MELVIN ROBERTO PAREDES MILLA.jpg" />
+    <Content Include="Img\null.jpg" />
+    <Content Include="Img\PARTIDO LIBERAL DE HONDURAS - YANI ROSENTHAL.jpg" />
+    <Content Include="Img\PARTIDO LIBERTAD Y REFUNDACION - XIOMARA CASTRO.jpg" />
+    <Content Include="Img\PARTIDO NACIONAL DE HONDURAS - NASRY ASFURA.jpg" />
+    <Content Include="Img\proceso.png" />
+    <Content Include="Img\Reportes.png" />
+    <Content Include="Img\TANIA GABRIELA PINTO PACHECO.jpg" />
+    <Content Include="Img\VALESKA YAMILETH VALENZUELA CHAVEZ.jpg" />
+    <Content Include="Img\WENDY ARACELY GUERRA MENDEZ.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

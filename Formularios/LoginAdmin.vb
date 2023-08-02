@@ -19,9 +19,14 @@
         If reader.Read Then
             Dim NombreUsuario As String
             NombreUsuario = reader("Nombre").ToString()
-            Dim FrmLoginAdmin As New MenuAdmin(NombreUsuario)
-            FrmLoginAdmin.Show()
+
+            Dim frmReporte As New Reporte(NombreUsuario)
+
+            frmReporte.Show()
             Me.Dispose()
+            'Dim FrmLoginAdmin As New MenuAdmin(NombreUsuario)
+            'FrmLoginAdmin.Show()
+            'Me.Dispose()
         Else
             MessageBox.Show("Numero de DNI o contraseña incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
@@ -30,5 +35,21 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Login.Show()
         Me.Dispose()
+    End Sub
+
+    Private Sub TxtDni_TextChanged(sender As Object, e As EventArgs) Handles TxtDni.TextChanged
+        Me.btnLimpiar.Visible = Me.TxtDni.Text <> ""
+    End Sub
+
+    Private Sub TxtContrasena_TextChanged(sender As Object, e As EventArgs) Handles TxtContrasena.TextChanged
+        Me.BtnMostrar.Visible = Me.TxtContrasena.Text <> ""
+    End Sub
+
+    Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
+        Me.TxtDni.Clear()
+    End Sub
+
+    Private Sub BtnMostrar_Click(sender As Object, e As EventArgs) Handles BtnMostrar.Click
+        Me.TxtContrasena.UseSystemPasswordChar = Not Me.TxtContrasena.UseSystemPasswordChar
     End Sub
 End Class

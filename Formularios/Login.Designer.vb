@@ -22,67 +22,76 @@ Partial Class Login
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtDni = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.BtnAdmin = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(43, 118)
+        Me.Button1.Location = New System.Drawing.Point(64, 288)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Ingresar"
+        Me.Button1.Size = New System.Drawing.Size(100, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "INGRESAR"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(76, 51)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(63, 16)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Identidad"
         '
         'TxtDni
         '
-        Me.TxtDni.Location = New System.Drawing.Point(205, 51)
+        Me.TxtDni.BackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.TxtDni.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtDni.Location = New System.Drawing.Point(177, 247)
         Me.TxtDni.Name = "TxtDni"
-        Me.TxtDni.Size = New System.Drawing.Size(120, 20)
-        Me.TxtDni.TabIndex = 2
+        Me.TxtDni.Size = New System.Drawing.Size(136, 13)
+        Me.TxtDni.TabIndex = 1
         '
-        'Button2
+        'btnSalir
         '
-        Me.Button2.Location = New System.Drawing.Point(205, 118)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Cancelar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnSalir.Location = New System.Drawing.Point(232, 289)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(100, 23)
+        Me.btnSalir.TabIndex = 3
+        Me.btnSalir.Text = "SALIR"
+        Me.btnSalir.UseVisualStyleBackColor = True
         '
         'BtnAdmin
         '
-        Me.BtnAdmin.Location = New System.Drawing.Point(256, 157)
+        Me.BtnAdmin.Location = New System.Drawing.Point(139, 330)
         Me.BtnAdmin.Name = "BtnAdmin"
-        Me.BtnAdmin.Size = New System.Drawing.Size(94, 23)
+        Me.BtnAdmin.Size = New System.Drawing.Size(117, 23)
         Me.BtnAdmin.TabIndex = 4
-        Me.BtnAdmin.Text = "Administracion"
+        Me.BtnAdmin.Text = "ADMINISTRACIÓN"
         Me.BtnAdmin.UseVisualStyleBackColor = True
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(CType(CType(119, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.btnLimpiar.FlatAppearance.BorderSize = 0
+        Me.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Location = New System.Drawing.Point(319, 241)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(21, 27)
+        Me.btnLimpiar.TabIndex = 5
+        Me.btnLimpiar.Text = "X"
+        Me.btnLimpiar.UseVisualStyleBackColor = False
+        Me.btnLimpiar.Visible = False
         '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(362, 192)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.ClientSize = New System.Drawing.Size(379, 406)
+        Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.BtnAdmin)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.TxtDni)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
@@ -92,8 +101,8 @@ Partial Class Login
     End Sub
 
     Friend WithEvents Button1 As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents TxtDni As TextBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnSalir As Button
     Friend WithEvents BtnAdmin As Button
+    Friend WithEvents btnLimpiar As Button
 End Class

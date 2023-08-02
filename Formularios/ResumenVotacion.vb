@@ -62,9 +62,9 @@ Public Class ResumenVotacion
                     m = "No se eligio candidato"
                 End If
                 If DB(query) > 0 Then 'Valida la insercción, si es mayor que 1 es correcto
-                    msg = cargo.Nombre & ": " & m & " agregado exitosamente." & vbNewLine & msg
+                    msg = cargo.Nombre & ": " & m & " Agregado exitosamente." & vbNewLine & msg
                 Else    'Valida la insercción, si es 0 es incorrecto
-                    msg = cargo.Nombre & ": " + m & " ocurrio un problema al guardar el dato." & vbNewLine & msg
+                    msg = cargo.Nombre & ": " + m & " Ocurrio un problema al guardar el dato." & vbNewLine & msg
                 End If
 
             Next

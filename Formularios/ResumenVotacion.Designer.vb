@@ -50,9 +50,9 @@ Partial Class ResumenVotacion
         Me.Label1.Location = New System.Drawing.Point(20, 14)
         Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(436, 25)
+        Me.Label1.Size = New System.Drawing.Size(518, 25)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Usted ah eligido los siguientes candidatos"
+        Me.Label1.Text = "Usted a seleccionado a los siguientes candidatos:"
         '
         'ImgPresidente
         '

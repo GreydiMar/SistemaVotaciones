@@ -243,7 +243,7 @@
         Dim con As New SqlClient.SqlConnection(My.Settings.Votaciones)
         con.Open()
         Dim reader As SqlClient.SqlDataReader
-        Dim query As String = "WITH VotosPorCandidato AS (SELECT v.CandidatoId, c.Nombre, ca.Nombre as Cargo, p.Nombre AS Partido, COUNT(*) AS Votos FROM Votos v INNER JOIN Candidatos c ON v.CandidatoId = c.Id INNER JOIN Cargos AS ca ON ca.Id = v.CargoId INNER JOIN Partidos AS p ON c.PartidoId = p.Id GROUP BY v.CandidatoId, c.Nombre, ca.Nombre, p.Nombre) SELECT Cargo, MAX(Votos) as Votos, Nombre, Partido FROM VotosPorCandidato GROUP BY Cargo, Nombre, Partido ORDER BY Cargo"
+        Dim query As String = "WITH VotosPorCandidato AS (SELECT v.CandidatoId, c.Nombre, ca.Nombre as Cargo, p.Nombre AS Partido, COUNT(*) AS Votos FROM Votos v INNER JOIN Candidatos c ON v.CandidatoId = c.Id INNER JOIN Cargos AS ca ON ca.Id = v.CargoId INNER JOIN Partidos AS p ON c.PartidoId = p.Id GROUP BY v.CandidatoId, c.Nombre, ca.Nombre, p.Nombre), VotosPorCargo AS (SELECT Cargo, MAX(Votos) as Votos, Nombre, Partido,       ROW_NUMBER() OVER (PARTITION BY Cargo ORDER BY MAX(Votos) DESC) as RowNumber FROM VotosPorCandidato GROUP BY Cargo, Nombre, Partido)SELECT Cargo, Votos, Nombre, Partido FROM VotosPorCargo WHERE RowNumber = 1 ORDER BY Cargo"
         Dim cmd As New SqlClient.SqlCommand(query, con)
         reader = cmd.ExecuteReader
 

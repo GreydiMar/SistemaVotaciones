@@ -44,7 +44,7 @@
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        Me.Dispose()
+        Application.Exit()
     End Sub
 
     Private Sub TxtDni_TextChanged(sender As Object, e As EventArgs) Handles TxtDni.TextChanged
@@ -54,4 +54,6 @@
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         Me.TxtDni.Clear()
     End Sub
+
+
 End Class

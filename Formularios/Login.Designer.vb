@@ -28,11 +28,12 @@ Partial Class Login
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.BtnAdmin = New System.Windows.Forms.Button()
         Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(64, 288)
+        Me.Button1.Location = New System.Drawing.Point(52, 289)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 23)
         Me.Button1.TabIndex = 2
@@ -50,7 +51,7 @@ Partial Class Login
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(232, 289)
+        Me.btnSalir.Location = New System.Drawing.Point(240, 289)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(100, 23)
         Me.btnSalir.TabIndex = 3
@@ -59,7 +60,7 @@ Partial Class Login
         '
         'BtnAdmin
         '
-        Me.BtnAdmin.Location = New System.Drawing.Point(139, 330)
+        Me.BtnAdmin.Location = New System.Drawing.Point(138, 318)
         Me.BtnAdmin.Name = "BtnAdmin"
         Me.BtnAdmin.Size = New System.Drawing.Size(117, 23)
         Me.BtnAdmin.TabIndex = 4
@@ -80,12 +81,22 @@ Partial Class Login
         Me.btnLimpiar.UseVisualStyleBackColor = False
         Me.btnLimpiar.Visible = False
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(292, 371)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 6
+        Me.Button2.Text = "Manual"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(379, 406)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.BtnAdmin)
         Me.Controls.Add(Me.btnSalir)
@@ -105,4 +116,5 @@ Partial Class Login
     Friend WithEvents btnSalir As Button
     Friend WithEvents BtnAdmin As Button
     Friend WithEvents btnLimpiar As Button
+    Friend WithEvents Button2 As Button
 End Class

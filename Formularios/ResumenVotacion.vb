@@ -18,9 +18,9 @@ Public Class ResumenVotacion
     Private Sub ResumenVotacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         For Each candidato In _listaCandidatos
-            Dim lblNombre As String = "LblNombre" + (candidato.CargoNombre.ToUpper).ToLower()
-            Dim lblPartido As String = "LblPartido" + (candidato.CargoNombre.ToUpper).ToLower()
-            Dim Img As String = "Img" + (candidato.CargoNombre.ToUpper).ToLower()
+            Dim lblNombre As String = "LblNombre" + Trim((candidato.CargoNombre.ToUpper).ToLower())
+            Dim lblPartido As String = "LblPartido" + Trim((candidato.CargoNombre.ToUpper).ToLower())
+            Dim Img As String = "Img" + Trim((candidato.CargoNombre.ToUpper).ToLower())
             Dim controlImg As Control = Me.Controls.Find(Img, True).FirstOrDefault()
             Dim controlPartido As Control = Me.Controls.Find(lblPartido, True).FirstOrDefault()
             Dim controlNombre As Control = Me.Controls.Find(lblNombre, True).FirstOrDefault()

@@ -55,5 +55,7 @@
         Me.TxtDni.Clear()
     End Sub
 
-
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Process.Start("C:\Users\greyd\source\repos\SistemaVotaciones\Manual\Manual.pdf")
+    End Sub
 End Class

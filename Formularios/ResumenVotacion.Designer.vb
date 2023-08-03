@@ -25,7 +25,7 @@ Partial Class ResumenVotacion
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ResumenVotacion))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ImgPresidente = New System.Windows.Forms.PictureBox()
-        Me.LblNombrePresidente = New System.Windows.Forms.Label()
+        Me.LblNombrepresidente = New System.Windows.Forms.Label()
         Me.LblPartidoPresidente = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -64,14 +64,14 @@ Partial Class ResumenVotacion
         Me.ImgPresidente.TabIndex = 2
         Me.ImgPresidente.TabStop = False
         '
-        'LblNombrePresidente
+        'LblNombrepresidente
         '
-        Me.LblNombrePresidente.Location = New System.Drawing.Point(21, 272)
-        Me.LblNombrePresidente.Name = "LblNombrePresidente"
-        Me.LblNombrePresidente.Size = New System.Drawing.Size(209, 20)
-        Me.LblNombrePresidente.TabIndex = 3
-        Me.LblNombrePresidente.Text = "No elijio candidato"
-        Me.LblNombrePresidente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblNombrepresidente.Location = New System.Drawing.Point(21, 272)
+        Me.LblNombrepresidente.Name = "LblNombrepresidente"
+        Me.LblNombrepresidente.Size = New System.Drawing.Size(209, 20)
+        Me.LblNombrepresidente.TabIndex = 3
+        Me.LblNombrepresidente.Text = "No elijio candidato"
+        Me.LblNombrepresidente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LblPartidoPresidente
         '
@@ -201,7 +201,7 @@ Partial Class ResumenVotacion
         Me.Controls.Add(Me.imgDiputado)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.LblPartidoPresidente)
-        Me.Controls.Add(Me.LblNombrePresidente)
+        Me.Controls.Add(Me.LblNombrepresidente)
         Me.Controls.Add(Me.ImgPresidente)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -220,7 +220,7 @@ Partial Class ResumenVotacion
 
     Friend WithEvents Label1 As Label
     Friend WithEvents ImgPresidente As PictureBox
-    Friend WithEvents LblNombrePresidente As Label
+    Friend WithEvents LblNombrepresidente As Label
     Friend WithEvents LblPartidoPresidente As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
